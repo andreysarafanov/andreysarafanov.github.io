@@ -1,0 +1,333 @@
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Antibes}
+  \usecolortheme{beaver}
+}
+
+\newcommand{\bs}{\textbackslash}
+
+
+\usepackage[english, russian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage[T2A]{fontenc}
+\usepackage{pscyr}
+\usepackage{amsthm,amsfonts,amsmath,amssymb,amscd}
+\usepackage{courier}
+\usepackage{verbatim}
+
+
+
+\title[Презентации в PDF] {Создание презентаций при помощи Beamer. 
+Использование графики в \LaTeX.}
+
+\author {Андрей Сарафанов, группа 524}
+
+\institute {\small{
+  Факультет вычислительной математики и кибернетики\\
+  МГУ им. Ломоносова
+}}
+
+\date {\footnotesize{Москва, 2015}}
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{План доклада}
+  \tableofcontents
+\end{frame}
+
+\section{Beamer}
+
+\subsection{Основная информация про Beamer}
+
+\begin{frame}{Что такое Beamer?}
+Beamer - один из классов Latex, позволяющих создавать презентации.
+Beamer
+  \begin{itemize}
+  \item
+    поставляется со множеством шаблонов, которые можно детально настраивать,
+  \item
+    предоставляет множество дополнительных команд, дающих контроль над содержимым слайдов.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{
+    Пример возможностей Beamer
+  }{
+    Можно управлять расположением элементов на экране
+  }
+  \begin{columns}
+    \column{.40\textwidth}
+      \begin{block}{первая колонка}
+        \begin{itemize}
+          \item первый левый
+          \item второй левый
+        \end{itemize}
+      \end{block}
+    \column{.40\textwidth}
+      \begin{block}{вторая колонка}
+        \begin{itemize}
+          \item первый правый
+          \item второй правый
+        \end{itemize}
+      \end{block}
+    \pause
+    \column{.2\textwidth}
+      \begin{block}{третья колонка}
+        Содержимое самой правой колонки.
+      \end{block}
+  \end{columns}
+\end{frame}
+
+
+\subsection{Детальный разбор Beamer}
+
+\begin{frame}{Установка Beamer}
+  Скорее всего, если LaTeX в системе настроен, то Beamer уже будет установлен.\\
+  \textbf{Зависимости}: pgf.sty 1.00+, xcolor.sty 2.00+, [pdflatex 0.14+]
+  \textbf{Установка}: 
+    \begin{itemize}
+      \item Mac\TeX\space и \TeX\space Live: утилитой \texttt{tkmgr}, в свежих версиях будет изначально
+      \item Mik\TeX\space и pro\TeX t: средствами этих IDE
+      \item Debian, Ubuntu: \texttt{apt-get install latex-beamer}
+      \item Fedora: \texttt{yum install texlive-texmf-latex}
+      \item В любой системе можно установить вручную, подробнее в документации/
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Выбор макета и цветовой схемы презентации}
+  \begin{columns}
+    \column{.5\textwidth}
+        К Beamer в комплекте идёт ряд макетов и цветовых схем.\\
+        При желании, настройки цвета и макет можно изменить как глобально,
+        так и для конкретного слайда.
+    \column{.5\textwidth}
+      \begin{verbatim}
+        \documentclass{beamer}
+
+        \mode<presentation>
+        {
+          \usetheme{Warsaw}
+          \usecolortheme{fly}
+        }  
+      \end{verbatim}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Данные для титульного листа}
+  \begin{columns}
+    \column{.3\textwidth}
+      Ещё перед первым слайдом добавляется информация о презентации. Она участвует в генерации шаблона и титульного слайда (\bs titlepage).
+    \column{.7\textwidth}
+      \begin{verbatim}
+        \title[Презентации в PDF] {
+          Создание презентаций 
+          при помощи Beamer. 
+          Использование графики в \LaTeX.
+        }
+           \author {Андрей Сарафанов, группа 524}
+        \institute {
+          Факультет вычислительной математики 
+          и кибернетики\\
+          МГУ им. Ломоносова
+        }
+        \date {\footnotesize{Москва, 2015}}
+      \end{verbatim}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Создание слайдов}
+  \begin{columns}
+    \column{.3\textwidth}
+      Каждый слайд обрамляется в
+      \texttt{
+        \bs begin\{frame\}[arguments]\\\{title\}\{subtitle\}
+        \\[1\baselineskip]
+        \bs end\{frame\}
+        }
+    \column{.7\textwidth}
+      \begin{verbatim}
+        \title[Презентации в PDF] {
+          Создание презентаций 
+          при помощи Beamer. 
+          Использование графики в \LaTeX.
+        }
+           \author {Андрей Сарафанов, группа 524}
+        \institute {
+              Факультет вычислительной математики 
+          и кибернетики\\
+          МГУ им. Ломоносова
+        }
+        \date{Москва, 2015}
+      \end{verbatim}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Управление видимостью объектов}
+  \begin{columns}
+    \column{.3\textwidth}
+      Команда \texttt{\bs pause} может быть использована, чтобы разбить слайд на набор кадров, которые будут выполняться по очереди.\\
+      \textit{Скоро появится список}
+      \pause
+      \begin{itemize}
+        \item1 Первый элемент
+        \pause
+        \item2 Второй элемент
+      \end{itemize}
+      \pause
+      \textit{Список закончился}
+    \onslide
+    \column{.7\textwidth}
+      \begin{verbatim}
+      \textit{Скоро появится список}
+      \pause
+      \begin{itemize}
+        \item1 Первый элемент
+        \pause
+        \item2 Второй элемент
+      \end{itemize}
+      \pause
+      \textit{Список закончился}
+      \end{verbatim}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Управление видимостью объектов}
+  Ряд команд позволяет указывать, на каких кадрах они выполняются.\\
+  \texttt{<1-3,5,6,8-> обозначает все кадры кроме 4 и 7}
+  \only<1>{
+    \begin{itemize}
+      \item \texttt{\bs textbf, \bs textit, \bs textsl, \bs textrm, \bs textsf, \bs color, \bs alert, \bs structure}: эти команды игнорируются на кадрах, не указанных в спецификации,
+      \item \texttt{\bs only}: показывает текст только на указанных кадрах, на других он игнорируется, не занимает вертикального пространства,
+      \item \texttt{\bs uncover}: на кадрах, не указанных в спецификации, текст становится невидимым или полупрозрачным в зависимости от настроек,
+      \item \texttt{\bs visible}: на кадрах, не указанных в спецификации, текст становится невидимым,
+      \item \texttt{\bs invisible}: противоположность \texttt{\bs visible}
+    \end{itemize}
+  }
+  \only<2->{
+    \begin{itemize}
+      \item \texttt{\bs alt}: принимает два параметра, на указанных слайдах показывает первый, на остальных - второй,
+      \item \texttt{\bs label}: можно указывать только один кадр, на котором элемент существует (по умолчанию --- первый кадр), используется в основном для навигации к нужному слайду,
+      \item \texttt{\bs item}: почти аналогично оборачиванию элемента в \texttt{\bs uncover} с той же спецификацией,
+      \item \texttt{\bs temporal}: принимает 3 параметра. Для кадров, не входящих в спецификацию, но более ранних, чем какой-либо кадр из неё, показывается первый, для кадров из спецификации - второй, иначе третий.
+    \end{itemize}
+  }
+\end{frame}
+\begin{frame}[fragile]{Управление видимостью объектов}
+  Помимо команд, спецификации видимости могут использоваться со многими окружениями.
+  \begin{itemize}
+    \item \texttt{theorem, proof, example,..}: для большинства окружений указание спецификации аналогично оборачиванию в \texttt{\bs uncover}
+    \item \texttt{uncoverenv, visibleenv, invisibleenv}: аналогично соответственно \texttt{\bs uncover}, \texttt{\bs visible}, \texttt{\bs invisible}
+    \item \texttt{onlyenv}: аналогично \texttt{\bs only}, но может показывать ошибки, которые \texttt{\bs only} бы "проглотила" (см. док.)
+    \item \texttt{altenv}: принимает 4 параметра: \texttt{\{begin text\}\{end text\}\{alternate begin text\}\{alternate end text\}}
+  \end{itemize}
+  При помощи \texttt{\bs only} можно динамически менять содержимое слайда, но это может привести к скачкам по вертикали. Избежать этого позволяют окружения \texttt{overlayarea, overprint} (см.док.)
+\end{frame}
+
+\begin{frame}{
+    Примеры управления видимостью элементов.
+  }{
+    Управление видимостью при помощи \texttt{\bs pause}
+  }
+  \begin{columns}
+    \column{.4\textwidth}
+      Последовательно показываем элементы списка при помощи 
+      \begin{itemize}
+        \item пункт первый
+        \pause
+        \item пункт второй
+        \pause
+      \end{itemize}
+      {Вывод на основе пунктов}
+      \onslide
+    \column{.6\textwidth}
+      \begin{verbatim}
+      \begin{itemize}
+        \item пункт первый
+        \pause
+        \item пункт второй
+        \pause
+      \end{itemize}
+      Вывод на основе пунктов
+      \end{verbatim}
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}{
+    Примеры управления видимостью элементов.
+  }{
+    Управление видимостью при помощи спецификаций видимости.
+  }
+  \begin{columns}
+    \column{.4\textwidth}
+      \begin{itemize}
+        \item пункт виден всегда
+        \only<3->\item пункт был спрятан до 3 кадра
+        \item<2-> пункт второй, спрятан до второго кадра
+      \end{itemize}
+      \begin{altenv}<1-2>{[}}{]}{(}{)}
+        Первые два кадра текст в квадратных скобках, потом в круглых
+      \end{altenv}
+      \onslide
+    \column{.6\textwidth}
+      \begin{verbatim}
+      \begin{itemize}
+        \item пункт виден всегда
+        \only<3->\item пункт был спрятан до 3 кадра
+        \item<2-> пункт второй, спрятан до второго кадра
+      \end{itemize}
+      \begin{altenv}<1-2>{[}}{]}{(}{)}
+        Первые два кадра текст в квадратных 
+        скобках, потом в круглых
+      \end{altenv}
+      \end{verbatim}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Разбиение на колонки}
+  \begin{columns}
+    \column{.4\textwidth}
+      Содержимое слайда можно разбивать на колонки с заданной шириной.
+      \begin{columns}
+        \column{.4\textwidth}
+        И даже можно
+        \column{.6\textwidth}
+        делать это рекурсивно
+      \end{columns}
+    \column{.6\textwidth}
+      \begin{verbatim}
+        \begin{columns}
+          \column{.4\textwidth}
+            Слева
+            \begin{columns}
+              \column{.4\textwidth}
+              слева-слева
+              \column{.6\textwidth}
+              слева-справа
+            \end{columns}
+
+          \column{.6\textwidth}
+            Справа
+        \end{columns}
+      \end{verbatim}
+  \end{columns}
+\end{frame}
+\begin{section}{Рекомендации по созданию презентаций}
+  \begin{frame}{Для чего нужна презентация на защите}
+    Задача презентации - пояснять устное выступление, а не отвлекать от него.
+    \begin{itemize}
+      \item Преимущественно нетекстовая информация.
+      \item Краткий, чёткий, лаконичный текст.
+      \item Дробление текста на списки.
+    \end{itemize}
+  \end{frame}
+\end{section}
+
+\end{document}
+
