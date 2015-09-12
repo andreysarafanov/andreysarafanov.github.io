@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+</head>>
+<body>
+<p>Lat (~30)</p>
+<input id="lat" type="text" name="lat">
+
+<p>Long (~50)</p>
+<input id="lng" type="text" name="long">
+<button id="btn">
+calculate
+</button>
+<p id="url"></p>
+<img id="img" src=""/>
+<script type="text/javascript">
+console.log('!!');
+$('#btn').click(function(){
+	console.log('!!');
+	var lat=$('#lat').val();
+	var lng=$('#lng').val();
+	var coord = lat + ',' + lng;
+	var url = 'http://static-maps.yandex.ru/1.x/?ll='+coord+'&size=450,450&z=17&l=map&pt='+coord;
+	console.log(url);
+	$('#img').attr('src', url);
+	$('#url').html(url);
+})
+</script>
+</body>
+</html>
