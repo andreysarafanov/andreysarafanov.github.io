@@ -1,199 +1,32 @@
-<!doctype html>
-<html lang="en">	
+<!DOCTYPE html>
+<html>
 <head>
-	<meta charset="utf-8">
-	<title>Электросети</title>
-	<link rel="stylesheet" href="css/reveal.min.css">
-	<link rel="stylesheet" href="css/theme/sky.css" id="theme">	
-	<script type="text/x-mathjax-config">
-	  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-	</script>
-	<script type="text/javascript"
-	  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-	</script>
-	<style>
-	p {
-		text-align: left;
-	}
-	p.right {
-		text-align: right;
-	}
-	p.middle {
-		text-align: middle;
-	}
-	p.small {
-		font-size: small;
-	}
-	p.medium {
-		font-size: medium;
-	}
-	.image {
-		border: 0px;
-		padding: 0px;
-	}
-	.white {
-		background: #ffffff !important
-		background-color: #ffffff !important
-	}
-	</style>
-</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<body class="white">
-	<!-- Wrap the entire slide show in a div using the "reveal" class. -->
-	<div class="reveal">
-		<!-- Wrap all slides in a single "slides" class -->
-		<div class="slides">
+</head>>
+<body>
+<p>Lat (~30)</p>
+<input id="lat" type="text" name="lat">
 
-			<!-- ALL SLIDES GO HERE -->
-			<!-- Each section element contains an individual slide -->
-			<section data-transition="none">
-				<br/><br/><br/><br/><br/>
-				<h2>Электросети</h2>
-				<p class="middle">Докладчик: Сарафанов Андрей, ВМК.</p>
-			</section>
-
-			<section data-transition="none">
-				<h2>Передача электроэнергии</h2>
-				<ul>
-					<li>Электрические сети</li>
-					<li>Потери в электрических сетях</li>
-					<li>Развитие электросетей</li>
-					<div style= "display:inline"> <img class="image" src="images/LEP.jpeg"/>
-					<img style= "float:left" class="image" src="images/Lep_Chelyabinskaya_Oblast1.jpg"/>
-					</div>
-				</ul>
-			</section>
-			
-			<section data-transition="none">	
-				<h2>Электрические сети</h2>
-				<p>
-					Основной способ передачи электроэнергии на настоящий момент.
-				</p>
-				<p>
-				$\Delta P = I^2R$ - потери мощности на линии,
-				$P = IU$ - полная мощность.
-				<br/>
-				Высокие мощности целесообразно передавать при высоком напряжении, но это непростая техническая задача.
-				</p>
-				<p>Уровни напряжения: 
-					<br/>
-					от: свыше 750кВ (сверхвысокий)
-					<br/>
-					до: 220В и ниже (низкий)
-				</p>
-				<p>Высокое напряжение - магистральные сети, малое - доведение для потребителя.</p>
-			</section>
-
-
-			<section data-transition="none">
-				<h2>Электрические сети</h2>
-				<img style= "float:left" class="image" src="images/grid struct.png"/>
-				<p class="small">Структура электросети США</p>
-			</section>
-
-			<section data-transition="none">
-				<h2>Электрические сети</h2>
-				<h3>Потери энергии в ЛЭП</h3>
-				<p>Основные потери в ЛЭП связаны с сопротивлением сети. 
-					<br/> 
-					Например, при передаче энергии с мощностью 1ГВт на расстояние около 100км потери составляют
-					<ul>
-						<li>при напряжении 765кВ - 0.5% - 1.1%</li>
-						<li>при напряжении 345кВ - 4.2%</li>
-					</ul>
-				</p>
-				<p>Слишком сильно повышать напряжение тоже нельзя, возникает коронный разряд. Связанные с ним потери могут превосходить выгоду, полученную из-за уменьшенной силы тока.</p>
-			</section>
-
-			<section data-transition="none">
-				<h2>Электрические сети</h2>
-				<h3>Потери энергии в ЛЭП</h3>
-				<p>Коронный разряд</p>
-				<div style= "display:inline"> 
-					<img class="image" src="images/Corona1.jpg"/>
-					<img style= "float:left" class="image" src="images/Corona3.jpg"/>
-				</div>
-			</section>
-
-			<section data-transition="none">
-				<h2>Развитие электросетей</h2>
-				<h3>Распределённая энергетика</h3>
-				<p>Часть энергии вырабатывается локально, а не получается из центрального источника.</p>
-				<p>Зачастую используются возобновляемые источники энергии.</p>
-				<table>
-				  	<tr>
-					    <td>
-					    	<div style= "float:left">
-								<img  class="image" src="images/distributed-energy.gif"/>
-								<br/>
-								<p class="small">Концепция</p>
-							</div>
-						</td>
-						<td>
-					    	<div style= "float:left">
-								<img  class="image" src="images/Microgrid1.jpg"/>
-								<br/>
-								<p class="small">Микроэлектростанция, Сендай, Япония</p>
-							</div>
-						</td>
-					</tr>
-				</table>
-			</section>
-
-			<section data-transition="none">
-				<h2>Развитие электросетей</h2>
-				<h3>Распределённая энергетика</h3>
-				<p>Преимущества распределённой энергетики:</p>
-				<ul>
-					<li>Снижаются потери при передаче энергии.</li>
-					<li>Снижается зависимость от центрального источника, смягчаются последствия аварий.</li>
-					<li>Возобновляемые источники энергии обычно лучше с экологической точки зрения.</li>
-				</ul>
-				<p>Недостатки:</p>
-				<ul>
-					<li>В настоящее время отказ от центральной энергетики не представляется возможным.</li>
-					<li>Многие возобновляемые источники энергии не отличаются надёжностью.</li>
-				</ul>
-			</section>
-
-			<section data-transition="none">
-				<h2>Развитие электросетей</h2>
-				<h3>Умные сети электроснабжения</h3>
-				<p>Использование современных информационных технологий для увеличения эффективности энергетики.</p>
-				<ul>
-					<li>Повышается надёжность систем, скорость и простота ремонта.</li>
-					<li>Позволяет сглаживать последствия неравнемерного потребления электроэнергии.</li>
-					<li>Ветроэнергетика, солнечная энергетика отличаются непостоянством, требуются сложные системы управления.</li>
-				</ul>
-			</section>
-
-			<section data-transition="none">
-				<h2>Развитие электросетей</h2>
-				<h3>Умные сети электроснабжения</h3>
-				<p>Основные опасения, связанные с умными элестросетями, основываются на том, что передача управления электронным системам снижает прозрачность, давая управляющим органам избыточный контроль и возможность для обмана.
-				<br/>
-				К тому же, умные электросети более подвержены опасности хакерских атак, что также является причиной для их критики.
-				</p>
-			</section>
-		</div>
-	</div>
-	<script src="lib/js/head.min.js"></script>
-	<script src="js/reveal.min.js"></script>
-
-	<script>
-		// Required, even if empty.
-		Reveal.initialize({
-		});
-	</script>
-</body>
-<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-<script>
-  if( window.location.search.match( /print-pdf/gi ) ) {
-    var link = document.createElement( 'link' );
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = 'css/print/pdf.css';
-    document.getElementsByTagName( 'head' )[0].appendChild( link );
-  }
+<p>Long (~50)</p>
+<input id="lng" type="text" name="long">
+<button id="btn">
+calculate
+</button>
+<p id="url"></p>
+<img id="img" src=""/>
+<script type="text/javascript">
+console.log('!!');
+$('#btn').click(function(){
+	console.log('!!');
+	var lat=$('#lat').val();
+	var lng=$('#lng').val();
+	var coord = lat + ',' + lng;
+	var url = 'http://static-maps.yandex.ru/1.x/?ll='+coord+'&size=450,450&z=17&l=map&pt='+coord;
+	console.log(url);
+	$('#img').attr('src', url);
+	$('#url').html(url);
+})
 </script>
+</body>
 </html>
