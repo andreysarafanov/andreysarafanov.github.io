@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<!-- saved from url=(0107)https://character-sheet-dnd5.appspot.com/#fileIds=0ByBd5CyMo2ZPSGFCd295endFdG8&userId=102239001101765347285 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=9">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+		 <meta name="viewport" content="width=device-width">
+        <meta name="google-site-verification" content="HAjY2U1_HutuLBG33yEQP2ajMaRsYNUSk4aHi3qqHaM">
+        <meta name="description" content="The D&amp;D 5e Character sheet lets you keep a collaborative character sheet stored in Google Drive.">
+        <meta name="keywords" content="d&amp;d, character, sheet, 5, 5e, dungeons, dragons, realtime, google, drive">
+        <title id="title">Малдар Колвир</title>
+
+        <link rel="stylesheet" href="./Maldar_files/jquery-ui.css">
+        <!--<link rel="stylesheet" href="css/main.css" type="text/css" media="screen" > -->
+        <link rel="stylesheet" href="./Maldar_files/characterSheet.css" type="text/css">
+        <link href="./Maldar_files/css" rel="stylesheet" type="text/css">
+
+        <!--Google Realtime Stuff-->
+        <script src="./Maldar_files/cb=gapi.loaded_0" async=""></script><script async="" src="./Maldar_files/analytics.js"></script><script type="text/javascript" src="./Maldar_files/jsapi"></script><style type="text/css"></style>
+        <script type="text/javascript" src="./Maldar_files/api.js" gapi_processed="true"></script>
+        <script type="text/javascript" src="./Maldar_files/jquery.min.js"></script>
+        <script type="text/javascript" src="./Maldar_files/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="./Maldar_files/realtime-client-utils.js"></script>
+        <script type="text/javascript" src="./Maldar_files/ddcs.js"></script>
+        <script type="text/javascript" src="./Maldar_files/ddcs.log.js"></script>
+        <script type="text/javascript" src="./Maldar_files/ddcs.collaborators.js"></script>
+        <script type="text/javascript" src="./Maldar_files/ddcs.ui.js"></script><script src="./Maldar_files/saved_resource" type="text/javascript"></script><link href="./Maldar_files/default.css" type="text/css" rel="stylesheet"><script src="./Maldar_files/default.I.js" type="text/javascript"></script>
+        <script type="text/javascript" src="./Maldar_files/ddcs.settings.js"></script>
+        <script type="text/javascript" src="./Maldar_files/ddcs.experience.js"></script>
+        <script type="text/javascript" src="./Maldar_files/ddcs.levels.js"></script>
+        <script type="text/javascript" src="./Maldar_files/ddcs.spells.js"></script>
+        <script type="text/javascript" src="./Maldar_files/ddcs.attacks.js"></script>
+        <script type="text/javascript" src="./Maldar_files/ddcs.strings.js"></script>
+        <script type="text/javascript" src="./Maldar_files/ddcs.inventory.js"></script>
+        <script type="text/javascript" src="./Maldar_files/ddcs.layout.js"></script>
+        <script type="text/javascript" src="./Maldar_files/ddcs.map.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="./Maldar_files/api"></script></head>
+
+    <body style="background: linear-gradient(white, rgb(140, 140, 170)) no-repeat fixed;">
+        <div class="dontPrint" id="rightBox">
+            <div id="showRightBox"></div>
+            <div class="scrollLink" data-destination="body">Top</div>
+            <div class="scrollLink" data-destination="#abilityContainer">Ability Scores</div>
+            <div class="scrollLink" data-destination="#saveContainer">Saving Throws</div>
+            <div class="scrollLink" data-destination="#skillsHead">Skills</div>
+            <div class="scrollLink" data-destination="#stats">Statistics</div>
+            <div class="scrollLink" data-destination="#hitDice">Hit Dice</div>
+            <div class="scrollLink" data-destination="#proficiencies">Proficiencies</div>
+            <div class="scrollLink" data-destination="#attacksAndCasting">Attacks</div>
+            <div class="scrollLink" data-destination="#featsAndTraits">Features</div>
+            <div class="scrollLink" data-destination="#inventory">Inventory</div>
+            <div class="scrollLink" data-destination="#descriptionBox">Description</div>
+            <div class="scrollLink" data-destination="#backstoryBox">Backstory</div>
+            <div id="spellCastingLink" class="scrollLink" data-destination="#spellCasting">Spellcasting</div>
+            <div class="scrollLink" data-destination="#notesBox">Notes</div>
+            <div class="scrollLink" data-destination="#levelsBox">Levels</div>
+            <div class="scrollLink" data-destination="#xpBox">Experience</div>
+        </div>
+        <div class="dontPrint">
+            <div class="inline" style="margin-bottom: 16px">
+                <div class="rp-social"></div>
+                <a href="https://plus.google.com/113165040357050627956" rel="publisher" target="_top" style="text-decoration:none;">
+                    <img src="./Maldar_files/gplus-32.png" alt="Google+" style="position:relative;top:12px;border:0;width:32px;height:32px;">
+                </a>
+                <button id="demoAuthorizeButton" disabled="" class="rp-button rp-button-submit">Authorize</button>
+                <button id="createNewDoc" class="rp-button rp-button-red">Create</button>
+                <button id="openExistingDoc" class="rp-button rp-button-submit">Open</button>
+                <button id="demoShareButton" class="rp-button rp-button-share">Share</button>
+                <button id="settingsButton" class="rp-button rp-button-settings">Settings</button>
+            </div>
+            <div>
+                <button id="undoButton" disabled="" class="rp-button">Undo</button>
+                <button id="redoButton" disabled="" class="rp-button">Redo</button>
+                <div id="collaborators" class="inline" style="margin-left: 50px;"><img src="./Maldar_files/photo.jpg" alt="Андрей Сарафанов" title="Андрей Сарафанов (Me)" style="background-color: rgb(31, 161, 93);"></div>
+            </div>
+            <div id="message"></div>
+            <div id="settings" class="inline group" style="display: none;">
+                <h2>Settings</h2>
+                <div style="padding: 10px;">
+                    <input id="ShowSpellCasting" type="checkbox"><label for="ShowSpellCasting"> Show Spellcasting</label><br>
+                    <input id="ShowUnusedCastingLevels" type="checkbox"><label for="ShowUnusedCastingLevels"> Show Unused Spell Levels</label><br>
+                    <input id="ShowUnsusedHitDice" type="checkbox"><label for="ShowUnsusedHitDice"> Show Unused Hit Dice</label><br>
+                    <input id="ShowThirdMaxWeight" type="checkbox"><label for="ShowThirdMaxWeight"> Show max weight using variant encumbrance (Strength * 5)</label><br>
+                    <input id="UseNumericalProficiencies" type="checkbox"><label for="UseNumericalProficiencies"> Numerical proficiencies</label><br>
+                    <input id="SelectBackgroundColor" type="color"><label for="SelectBackgroundColor"> Background Color</label>
+                </div>
+            </div>
+        </div>
+        <div id="mainContent" class="">
+
+            <div id="documentNameContainer" style="">
+                <input type="text" name="documentName" id="documentName" title="Character Name" style="margin-left: 5px;" value="" placeholder="...">
+            </div>
+            <div id="masonryDiv">
+                <div id="abilityColumn" class="inline">
+                    <div id="abilityContainer" class="inline statHolder">
+                        <div class="squareStat hasMod">Strength
+                            <div>
+                                <input id="Strength" class="bigNumber" type="number" autocomplete="off" min="1" max="30" step="1" value="8">
+                            </div>
+                            <div id="strMod" class="littleNumber get-StrengthMod" title="Strength Modifier" draggable="true">+0</div>
+                        </div>
+                        <div class="squareStat hasMod">Dexterity
+                            <div>
+                                <input id="Dexterity" class="bigNumber" type="number" autocomplete="off" min="1" max="30" step="1" value="8">
+                            </div>
+                            <div id="dexMod" class="littleNumber get-DexterityMod" title="Dexterity Modifier" draggable="true">+3</div>
+                        </div>
+                        <div class="squareStat hasMod">Constitution
+                            <div>
+                                <input id="Constitution" class="bigNumber" type="number" autocomplete="off" min="1" max="30" step="1" value="8">
+                            </div>
+                            <div id="conMod" class="littleNumber get-ConstitutionMod" title="Constitution Modifier" draggable="true">+4</div>
+                        </div>
+                        <div class="squareStat hasMod">Intelligence
+                            <div>
+                                <input id="Intelligence" class="bigNumber" type="number" autocomplete="off" min="1" max="30" step="1" value="8">
+                            </div>
+                            <div id="intelMod" class="littleNumber get-IntelligenceMod" title="Intelligence Modifier" draggable="true">+3</div>
+                        </div>
+                        <div class="squareStat hasMod">Wisdom
+                            <div>
+                                <input id="Wisdom" class="bigNumber" type="number" autocomplete="off" min="1" max="30" step="1" value="8">
+                            </div>
+                            <div id="wisMod" class="littleNumber get-WisdomMod" title="Wisdom Modifier" draggable="true">+2</div>
+                        </div>
+                        <div class="squareStat hasMod">Charisma
+                            <div>
+                                <input id="Charisma" class="bigNumber" type="number" autocomplete="off" min="1" max="30" step="1" value="8">
+                            </div>
+                            <div id="chaMod" class="littleNumber get-CharismaMod" title="Charisma Modifier" draggable="true">+5</div>
+                        </div>
+                    </div><div id="saveContainer" class="inline group">
+                        <h2>Saving Throws</h2>
+                        <div class="modLine"><input id="StrengthSaveProf" type="checkbox" class="profInput"><span class="inlineMod get-StrengthSave" id="strSaveMod" title="Strength Modifier" draggable="true">+0</span> Strength</div>
+                        <div class="modLine"><input id="DexteritySaveProf" type="checkbox" class="profInput"><span class="inlineMod get-DexteritySave" id="dexSaveMod" title="Dexterity Modifier" draggable="true">+3</span> Dexterity</div>
+                        <div class="modLine"><input id="ConstitutionSaveProf" type="checkbox" class="profInput"><span class="inlineMod get-ConstitutionSave" id="conSaveMod" title="Constitution Modifier" draggable="true">+4</span> Constitution</div>
+                        <div class="modLine"><input id="IntelligenceSaveProf" type="checkbox" class="profInput"><span class="inlineMod get-IntelligenceSave" id="intelSaveMod" title="Intelligence Modifier" draggable="true">+3</span> Intelligence</div>
+                        <div class="modLine"><input id="WisdomSaveProf" type="checkbox" class="profInput"><span class="inlineMod get-WisdomSave" id="wisSaveMod" title="Wisdom Modifier + Proficiency Bonus" draggable="true">+4</span> Wisdom</div>
+                        <div class="modLine"><input id="CharismaSaveProf" type="checkbox" class="profInput"><span class="inlineMod get-CharismaSave" id="chaSaveMod" title="Charisma Modifier + Proficiency Bonus" draggable="true">+7</span> Charisma</div>
+                        <h2 id="skillsHead" style="margin-top: 10px;">Skills</h2>
+                        <div class="">
+                            <div class="modLine">
+                                <input id="AcrobaticsProf" type="checkbox" class="profInput"><span class="inlineMod get-AcrobaticsMod" id="acrobaticsMod" title="Dexterity Modifier" draggable="true">+3</span>
+                                Acrobatics
+                                <span class="profMultiplier" style="display:none;"> × <input id="AcrobaticsProfMultiplier" class="multiplier" type="number"></span>
+                            </div>
+                            <div class="modLine">
+                                <input id="AnimalHandlingProf" type="checkbox" class="profInput"><span class="inlineMod get-AnimalHandlingMod" id="animalHandlingMod" title="Wisdom Modifier" draggable="true">+2</span>
+                                Animal Handling
+                            </div>
+                            <div class="modLine">
+                                <input id="ArcanaProf" type="checkbox" class="profInput"><span class="inlineMod get-ArcanaMod" id="arcanaMod" title="Intelligence Modifier" draggable="true">+3</span>
+                                Arcana
+                            </div>
+                            <div class="modLine">
+                                <input id="AthleticsProf" type="checkbox" class="profInput"><span class="inlineMod get-AthleticsMod" id="athleticsMod" title="Strength Modifier" draggable="true">+0</span>
+                                Athletics
+                            </div>
+                            <div class="modLine">
+                                <input id="DeceptionProf" type="checkbox" class="profInput"><span class="inlineMod get-DeceptionMod" id="deceptionMod" title="Charisma Modifier + Proficiency Bonus" draggable="true">+7</span>
+                                Deception
+                            </div>
+                            <div class="modLine">
+                                <input id="HistoryProf" type="checkbox" class="profInput"><span class="inlineMod get-HistoryMod" id="historyMod" title="Intelligence Modifier" draggable="true">+3</span>
+                                History
+                            </div>
+                            <div class="modLine">
+                                <input id="InsightProf" type="checkbox" class="profInput"><span class="inlineMod get-InsightMod" id="insightMod" title="Wisdom Modifier + Proficiency Bonus" draggable="true">+4</span>
+                                Insight
+                            </div>
+                            <div class="modLine">
+                                <input id="IntimidationProf" type="checkbox" class="profInput"><span class="inlineMod get-IntimidationMod" id="intimidationMod" title="Charisma Modifier" draggable="true">+5</span>
+                                Intimidation
+                            </div>
+                            <div class="modLine">
+                                <input id="InvestigationProf" type="checkbox" class="profInput"><span class="inlineMod get-InvestigationMod" id="investigationMod" title="Intelligence Modifier" draggable="true">+3</span>
+                                Investigation
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="modLine"><input id="MedicineProf" type="checkbox" class="profInput"><span class="inlineMod get-MedicineMod" id="medicineMod" title="Wisdom Modifier + Proficiency Bonus" draggable="true">+4</span> Medicine</div>
+                            <div class="modLine"><input id="NatureProf" type="checkbox" class="profInput"><span class="inlineMod get-NatureMod" id="natureMod" title="Intelligence Modifier + Proficiency Bonus" draggable="true">+5</span> Nature</div>
+                            <div class="modLine"><input id="PerceptionProf" type="checkbox" class="profInput"><span class="inlineMod get-PerceptionMod" id="perceptionMod" title="Wisdom Modifier" draggable="true">+2</span> Perception</div>
+                            <div class="modLine"><input id="PerformanceProf" type="checkbox" class="profInput"><span class="inlineMod get-PerformanceMod" id="performanceMod" title="Charisma Modifier" draggable="true">+5</span> Performance</div>
+                            <div class="modLine"><input id="PersuasionProf" type="checkbox" class="profInput"><span class="inlineMod get-PersuasionMod" id="persuasionMod" title="Charisma Modifier + Proficiency Bonus" draggable="true">+7</span> Persuasion</div>
+                            <div class="modLine"><input id="ReligionProf" type="checkbox" class="profInput"><span class="inlineMod get-ReligionMod" id="religionMod" title="Intelligence Modifier" draggable="true">+3</span> Religion</div>
+                            <div class="modLine"><input id="SleightOfHandProf" type="checkbox" class="profInput"><span class="inlineMod get-SleightOfHandMod" id="sleightOfHandMod" title="Dexterity Modifier" draggable="true">+3</span> Sleight of Hand</div>
+                            <div class="modLine"><input id="StealthProf" type="checkbox" class="profInput"><span class="inlineMod get-StealthMod" id="stealthMod" title="Dexterity Modifier" draggable="true">+3</span> Stealth</div>
+                            <div class="modLine"><input id="SurvivalProf" type="checkbox" class="profInput"><span class="inlineMod get-SurvivalMod" id="survivalMod" title="Wisdom Modifier + Proficiency Bonus" draggable="true">+4</span> Survival</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="statColumn" class="inline">
+                    <div id="stats" class="statHolder" style="text-align: center">
+                        <div class="inline squareStat hasMod">Hit Points
+                            <div>
+                                <input id="HitPoints" class="longBigNumber" type="number" autocomplete="off" min="0" max="999" step="1" value="10">
+                            </div>
+                            <div id="maxHp" title="Max HP from levels gained" class="littleNumber">0</div>
+                        </div><div class="inline squareStat">Armor Class
+                            <div>
+                                <input id="ArmorClass" class="bigNumber" type="number" autocomplete="off" min="0" max="99" step="1" value="8">
+                            </div>
+                        </div><div class="inline squareStat">Initiative
+                            <div id="initiative" class="bigNumber get-DexterityMod" title="Dexterity Modifier" draggable="true">+3</div>
+                        </div><div class="inline squareStat">Proficiency<br>Bonus
+                            <div>
+                                <input id="ProficiencyBonus" class="bigNumber" type="number" autocomplete="off" min="2" max="99" step="1" value="2">
+                            </div>
+                        </div><div class="inline squareStat">Speed<br>&nbsp;
+                            <div>
+                                <input id="Speed" class="bigNumber" type="number" autocomplete="off" min="0" max="99" step="1" value="30">
+                            </div>
+                        </div><div class="inline squareStat">Passive<br>Perception
+                            <div id="passivePerception" class="bigNumber calculate" data-calculation="10 + PerceptionMod" title="10 + PerceptionMod">12</div>
+                        </div>
+                        <div>
+                            <div class="inline squareStat" style="padding: 6px 20px;">
+                                <div class="inline" style="margin-right: 10px; font-weight: bold; vertical-align: middle;">
+                                    <p>Death Saves</p>
+                                </div>
+                                <div class="inline">
+                                    <table>
+                                        <tbody><tr>
+                                            <td>
+                                                <span style="margin-right: 10px">Successes</span>
+                                            </td><td>
+                                                <input id="DeathSavePass0" type="checkbox" style="margin-right: 10px">
+                                            </td><td>
+                                                <input id="DeathSavePass1" type="checkbox" style="margin-right: 10px">
+                                            </td><td>
+                                                <input id="DeathSavePass2" type="checkbox">
+                                            </td>
+                                        </tr><tr>
+                                            <td>
+                                                <span style="margin-right: 10px">Failures</span>
+                                            </td><td>
+                                                <input id="DeathSaveFail0" type="checkbox" style="margin-right: 10px">
+                                            </td><td>
+                                                <input id="DeathSaveFail1" type="checkbox" style="margin-right: 10px">
+                                            </td><td>
+                                                <input id="DeathSaveFail2" type="checkbox">
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                            </div>
+                        </div>
+                        <!--
+                        <div class="inline squareStat">Inspiration
+                            <div>
+                                <input id="Inspiration" class="bigNumber" type="number" autocomplete="off"  min="0" max="1" step="1" value="0">
+                            </div>
+                        </div>
+                        -->
+                    </div><div id="hitDice" class="inline group" style="width: auto">
+                        <h2>Hit Dice</h2>
+                        <div id="d6HitDice">
+                            <div class="inline">
+                                <input id="D6HitDice" class="bigNumber" type="number" autocomplete="off" min="0" max="0" step="1" value="0">
+                            </div>
+                            <div class="inline bigNumber">
+                                d6
+                            </div>
+                            <div class="inline bigNumber get-ConstitutionMod" title="Constitution Modifier" draggable="true">+4</div>
+                            <div style="text-align: left;">
+                                Max <input id="D6HitDiceMax" class="littleNumber" type="number" autocomplete="off" min="0" max="99" step="1" value="0">
+                            </div>
+                        </div>
+                        <div id="d8HitDice">
+                            <div class="inline">
+                                <input id="D8HitDice" class="bigNumber" type="number" autocomplete="off" min="0" max="1" step="1" value="0">
+                            </div>
+                            <div class="inline bigNumber">
+                                d8
+                            </div>
+                            <div class="inline bigNumber get-ConstitutionMod" title="Constitution Modifier" draggable="true">+4</div>
+                            <div style="text-align: left;">
+                                Max <input id="D8HitDiceMax" class="littleNumber" type="number" autocomplete="off" min="0" max="99" step="1" value="0">
+                            </div>
+                        </div>
+                        <div id="d10HitDice">
+                            <div class="inline">
+                                <input id="D10HitDice" class="bigNumber" type="number" autocomplete="off" min="0" max="0" step="1" value="0">
+                            </div>
+                            <div class="inline bigNumber">
+                                d10
+                            </div>
+                            <div class="inline bigNumber get-ConstitutionMod" title="Constitution Modifier" draggable="true">+4</div>
+                            <div style="text-align: left; height: 30px">
+                                Max <input id="D10HitDiceMax" class="littleNumber" type="number" autocomplete="off" min="0" max="99" step="1" value="0">
+                            </div>
+                        </div>
+                        <div id="d12HitDice">
+                            <div class="inline">
+                                <input id="D12HitDice" class="bigNumber" type="number" autocomplete="off" min="0" max="0" step="1" value="0">
+                            </div>
+                            <div class="inline bigNumber">
+                                d12
+                            </div>
+                            <div class="inline bigNumber get-ConstitutionMod" title="Constitution Modifier" draggable="true">+4</div>
+                            <div style="text-align: left; height: 30px">
+                                Max <input id="D12HitDiceMax" class="littleNumber" type="number" autocomplete="off" min="0" max="99" step="1" value="0">
+                            </div>
+                        </div>
+                    </div><div id="proficiencies" class="inline group" style="width: 160px">
+                        <h2>Proficiencies</h2>
+                        <div id="proficiency" contenteditable="true"><h3>Weapons</h3><div>Simple weapons</div><div><h3 style="line-height: 20.8px;">Armor</h3></div><div>Light armor</div><h3>Languages</h3><div>Common</div><div>Elvish</div><div>Gnome</div><h3>Tools</h3><div>Herbalist's kit</div><div>Alchemist's kit</div></div>
+                    </div>
+                </div>
+                <div id="statColumn" class="inline">
+                    <div id="attacksAndCasting" class="group">
+                        <h2>Attacks and Spellcasting</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="min-width: 60px">Attack</th><th style="min-width: 50px">Bonus</th><th style="min-width: 50px">Damage</th><th style="min-width: 40px">Type</th><th></th>
+                                </tr>
+                            </thead><tbody id="attackTable"><tr class="attack" id="attack0"><td class="attackDetails attackName" contenteditable="true">Dagger melee<br></td><td class="attackDetails attackBonus" contenteditable="true">+<b><span class="calculate" data-calculation="DexterityMod + ProficiencyBonus" title="DexterityMod + ProficiencyBonus">5</span></b></td><td class="attackDetails attackDamage" contenteditable="true">1d4 + <b><span class="calculate" data-calculation="DexterityMod" title="DexterityMod">3</span></b></td><td class="attackDetails attackDamageType" contenteditable="true">piercing</td><td><button class="deleteButton" type="button" style="visibility: hidden;"></button></td></tr><tr class="attack" id="attack1"><td class="attackDetails attackName" contenteditable="true">Dagger throw(20/60)</td><td class="attackDetails attackBonus" contenteditable="true">+<b><span class="calculate" data-calculation="DexterityMod + ProficiencyBonus" title="DexterityMod + ProficiencyBonus">5</span></b></td><td class="attackDetails attackDamage" contenteditable="true">1d4 + <b><span class="calculate" data-calculation="DexterityMod" title="DexterityMod">3</span></b></td><td class="attackDetails attackDamageType" contenteditable="true">piercing</td><td><button class="deleteButton" type="button" style="visibility: hidden;"></button></td></tr><tr class="attack" id="attack2"><td class="attackDetails attackName" contenteditable="true">Light crossbow(80/320)</td><td class="attackDetails attackBonus" contenteditable="true">+<b><span class="calculate" data-calculation="DexterityMod + ProficiencyBonus" title="DexterityMod + ProficiencyBonus">5</span></b></td><td class="attackDetails attackDamage" contenteditable="true">1d8 + <b><span class="calculate" data-calculation="DexterityMod" title="DexterityMod">3</span></b></td><td class="attackDetails attackDamageType" contenteditable="true">piercing</td><td><button class="deleteButton" type="button" style="visibility: hidden;"></button></td></tr><tr class="attack" id="attack3"><td class="attackDetails attackName" contenteditable="true">Eldritch blast(120)</td><td class="attackDetails attackBonus" contenteditable="true">+<b><span class="calculate" data-calculation="CharismaMod + ProficiencyBonus" title="CharismaMod + ProficiencyBonus">7</span></b></td><td class="attackDetails attackDamage" contenteditable="true">1d10</td><td class="attackDetails attackDamageType" contenteditable="true">force</td><td><button class="deleteButton" type="button" style="visibility: hidden;"></button></td></tr></tbody>
+                            <tbody><tr><td><button id="addAttackButton" class="addButton" type="button"></button></td></tr></tbody>
+                        </table>
+                        <div id="attackBox" class="notebook" contenteditable="true" style="margin-top: 14px; min-height: 1em;"></div>
+                    </div><div id="featsAndTraits" class="group">
+                        <h2>Features and Traits</h2>
+                        <div id="features" class="notebook" contenteditable="true">Darkvision: 60 ft.<div>Advantage on saving throws agains charm</div><div>Immune to sleep magic<br><div><br></div></div></div>
+                    </div>
+                </div>
+                <div id="inventory" class="inline group">
+                    <h2>
+                        Inventory 
+                        <span id="weightCarried">36.9</span>
+                        /
+                        <span id="maxWeight" class="calculate" data-calculation="Strength * 15" title="Strength * 15">165</span>
+                        <span id="thirdMaxWeight" class="calculate" data-calculation="Strength * 5" style="display:none" title="Strength * 5">55</span>
+                        lbs
+                        <span id="weightWarning" title="" style="display: none;"></span>
+                    </h2>
+                    <div id="itemList"><table class="itemGroupHeader"><td style="font-weight: bold;">Writing</td><td style="text-align:right; font-weight: bold;">36gp 2cp 1 lbs  <input type="checkbox" title="Add to weight carried" id="0checkBox"></td></table><div><table class="itemGroup"><thead><tr><th style="width:50px"></th><th style="min-width:100px;"></th><th style="width:25px"></th></tr></thead><tbody><tr id="group0item12" title="&lt;span&gt;0 lbs&lt;/span&gt;&lt;span style=&quot;float:right; margin-left:10px;&quot;&gt;&lt;/span&gt;&lt;div&gt;&lt;/div&gt;"><td><input style="float: left ;width: 50px; text-align: right;" type="number" min="0" max="9999" id="group0item12Quantity"></td><td>Bag of sand</td><td><button class="deleteButton" type="button" title="Remove and edit item" style="visibility: hidden;"></button></td></tr><tr id="group0item13" title="&lt;span&gt;0 lbs&lt;/span&gt;&lt;span style=&quot;float:right; margin-left:10px;&quot;&gt;25gp&lt;/span&gt;&lt;div&gt;&lt;/div&gt;"><td><input style="float: left ;width: 50px; text-align: right;" type="number" min="0" max="9999" id="group0item13Quantity"></td><td>Book of Lore</td><td><button class="deleteButton" type="button" title="Remove and edit item" style="visibility: hidden;"></button></td></tr><tr id="group0item15" title="&lt;span&gt;0 lbs&lt;/span&gt;&lt;span style=&quot;float:right; margin-left:10px;&quot;&gt;10gp&lt;/span&gt;&lt;div&gt;&lt;/div&gt;"><td><input style="float: left ;width: 50px; text-align: right;" type="number" min="0" max="9999" id="group0item15Quantity"></td><td>Ink</td><td><button class="deleteButton" type="button" title="Remove and edit item" style="visibility: hidden;"></button></td></tr><tr id="group0item16" title="&lt;span&gt;0 lbs&lt;/span&gt;&lt;span style=&quot;float:right; margin-left:10px;&quot;&gt;2cp&lt;/span&gt;&lt;div&gt;&lt;/div&gt;"><td><input style="float: left ;width: 50px; text-align: right;" type="number" min="0" max="9999" id="group0item16Quantity"></td><td>Ink pen</td><td><button class="deleteButton" type="button" title="Remove and edit item" style="visibility: hidden;"></button></td></tr><tr id="group0item17" title="&lt;span&gt;0 lbs&lt;/span&gt;&lt;span style=&quot;float:right; margin-left:10px;&quot;&gt;1sp&lt;/span&gt;&lt;div&gt;&lt;/div&gt;"><td><input style="float: left ;width: 50px; text-align: right;" type="number" min="0" max="9999" id="group0item17Quantity"></td><td>Parchment</td><td><button class="deleteButton" type="button" title="Remove and edit item" style="visibility: hidden;"></button></td></tr><tr id="group0item18" title="&lt;span&gt;1 lbs&lt;/span&gt;&lt;span style=&quot;float:right; margin-left:10px;&quot;&gt;&lt;/span&gt;&lt;div&gt;&lt;/div&gt;"><td><input style="float: left ;width: 50px; text-align: right;" type="number" min="0" max="9999" id="group0item18Quantity"></td><td>Small knife</td><td><button class="deleteButton" type="button" title="Remove and edit item" style="visibility: hidden;"></button></td></tr></tbody></table></div><table class="itemGroupHeader"><td style="font-weight: bold;">Inventory</td><td style="text-align:right; font-weight: bold;">92gp 2sp 33 lbs  <input type="checkbox" title="Add to weight carried" id="1checkBox"></td></table><div><table class="itemGroup"><thead><tr><th style="width:50px"></th><th style="min-width:100px;"></th><th style="width:25px"></th></tr></thead><tbody><tr id="group1item0" title="&lt;span&gt;10 lbs&lt;/span&gt;&lt;span style=&quot;float:right; margin-left:10px;&quot;&gt;10gp&lt;/span&gt;&lt;div&gt;AC 11+{DexMod}&lt;/div&gt;"><td><input style="float: left ;width: 50px; text-align: right;" type="number" min="0" max="9999" id="group1item0Quantity"></td><td>Leather Armor</td><td><button class="deleteButton" type="button" title="Remove and edit item" style="visibility: hidden;"></button></td></tr><tr id="group1item1" title="&lt;span&gt;1 lbs&lt;/span&gt;&lt;span style=&quot;float:right; margin-left:10px;&quot;&gt;1sp&lt;/span&gt;&lt;div&gt;1d4 light finesse&lt;/div&gt;"><td><input style="float: left ;width: 50px; text-align: right;" type="number" min="0" max="9999" id="group1item1Quantity"></td><td>Dagger</td><td><button class="deleteButton" type="button" title="Remove and edit item" style="visibility: hidden;"></button></td></tr><tr id="group1item2" title="&lt;span&gt;0 lbs&lt;/span&gt;&lt;span style=&quot;float:right; margin-left:10px;&quot;&gt;&lt;/span&gt;&lt;div&gt;&lt;/div&gt;"><td><input style="float: left ;width: 50px; text-align: right;" type="number" min="0" max="9999" id="group1item2Quantity"></td><td>Bolt</td><td><button class="deleteButton" type="button" title="Remove and edit item" style="visibility: hidden;"></button></td></tr><tr id="group1item3" title="&lt;span&gt;5 lbs&lt;/span&gt;&lt;span style=&quot;float:right; margin-left:10px;&quot;&gt;25gp&lt;/span&gt;&lt;div&gt;1d8 piercing, Ammunition (range 80/320), loading, two-handed&lt;/div&gt;"><td><input style="float: left ;width: 50px; text-align: right;" type="number" min="0" max="9999" id="group1item3Quantity"></td><td>Light Crossbow</td><td><button class="deleteButton" type="button" title="Remove and edit item" style="visibility: hidden;"></button></td></tr><tr id="group1item5" title="&lt;span&gt;8 lbs&lt;/span&gt;&lt;span style=&quot;float:right; margin-left:10px;&quot;&gt;50gp&lt;/span&gt;&lt;div&gt;&lt;/div&gt;"><td><input style="float: left ;width: 50px; text-align: right;" type="number" min="0" max="9999" id="group1item5Quantity"></td><td>Alchemist's supplies</td><td><button class="deleteButton" type="button" title="Remove and edit item" style="visibility: hidden;"></button></td></tr><tr id="group1item7" title="&lt;span&gt;3 lbs&lt;/span&gt;&lt;span style=&quot;float:right; margin-left:10px;&quot;&gt;5gp&lt;/span&gt;&lt;div&gt;&lt;/div&gt;"><td><input style="float: left ;width: 50px; text-align: right;" type="number" min="0" max="9999" id="group1item7Quantity"></td><td>Herbalism kit</td><td><button class="deleteButton" type="button" title="Remove and edit item" style="visibility: hidden;"></button></td></tr><tr id="group1item8" title="&lt;span&gt;5 lbs&lt;/span&gt;&lt;span style=&quot;float:right; margin-left:10px;&quot;&gt;2gp&lt;/span&gt;&lt;div&gt;&lt;/div&gt;"><td><input style="float: left ;width: 50px; text-align: right;" type="number" min="0" max="9999" id="group1item8Quantity"></td><td>Backpack</td><td><button class="deleteButton" type="button" title="Remove and edit item" style="visibility: hidden;"></button></td></tr></tbody></table></div><table class="itemGroupHeader"><td style="font-weight: bold;">On person</td><td style="text-align:right; font-weight: bold;">95gp 2.9 lbs  <input type="checkbox" title="Add to weight carried" id="2checkBox"></td></table><div><table class="itemGroup"><thead><tr><th style="width:50px"></th><th style="min-width:100px;"></th><th style="width:25px"></th></tr></thead><tbody><tr id="group2item4" title="&lt;span&gt;0.02 lbs&lt;/span&gt;&lt;span style=&quot;float:right; margin-left:10px;&quot;&gt;1pp&lt;/span&gt;&lt;div&gt;&lt;/div&gt;"><td><input style="float: left ;width: 50px; text-align: right;" type="number" min="0" max="9999" id="group2item4Quantity"></td><td>Platinum Pieces</td><td><button class="deleteButton" type="button" title="Remove and edit item" style="visibility: hidden;"></button></td></tr><tr id="group2item6" title="&lt;span&gt;0.02 lbs&lt;/span&gt;&lt;span style=&quot;float:right; margin-left:10px;&quot;&gt;1gp&lt;/span&gt;&lt;div&gt;&lt;/div&gt;"><td><input style="float: left ;width: 50px; text-align: right;" type="number" min="0" max="9999" id="group2item6Quantity"></td><td>Gold Pieces</td><td><button class="deleteButton" type="button" title="Remove and edit item" style="visibility: hidden;"></button></td></tr><tr id="group2item9" title="&lt;span&gt;0.02 lbs&lt;/span&gt;&lt;span style=&quot;float:right; margin-left:10px;&quot;&gt;1ep&lt;/span&gt;&lt;div&gt;&lt;/div&gt;"><td><input style="float: left ;width: 50px; text-align: right;" type="number" min="0" max="9999" id="group2item9Quantity"></td><td>Electrum Pieces</td><td><button class="deleteButton" type="button" title="Remove and edit item" style="visibility: hidden;"></button></td></tr><tr id="group2item10" title="&lt;span&gt;0.02 lbs&lt;/span&gt;&lt;span style=&quot;float:right; margin-left:10px;&quot;&gt;1sp&lt;/span&gt;&lt;div&gt;&lt;/div&gt;"><td><input style="float: left ;width: 50px; text-align: right;" type="number" min="0" max="9999" id="group2item10Quantity"></td><td>Silver Pieces</td><td><button class="deleteButton" type="button" title="Remove and edit item" style="visibility: hidden;"></button></td></tr><tr id="group2item11" title="&lt;span&gt;0.02 lbs&lt;/span&gt;&lt;span style=&quot;float:right; margin-left:10px;&quot;&gt;1cp&lt;/span&gt;&lt;div&gt;&lt;/div&gt;"><td><input style="float: left ;width: 50px; text-align: right;" type="number" min="0" max="9999" id="group2item11Quantity"></td><td>Copper Pieces</td><td><button class="deleteButton" type="button" title="Remove and edit item" style="visibility: hidden;"></button></td></tr><tr id="group2item14" title="&lt;span&gt;0 lbs&lt;/span&gt;&lt;span style=&quot;float:right; margin-left:10px;&quot;&gt;&lt;/span&gt;&lt;div&gt;&lt;/div&gt;"><td><input style="float: left ;width: 50px; text-align: right;" type="number" min="0" max="9999" id="group2item14Quantity"></td><td>Component pouch</td><td><button class="deleteButton" type="button" title="Remove and edit item" style="visibility: hidden;"></button></td></tr><tr id="group2item19" title="&lt;span&gt;1 lbs&lt;/span&gt;&lt;span style=&quot;float:right; margin-left:10px;&quot;&gt;&lt;/span&gt;&lt;div&gt;&lt;/div&gt;"><td><input style="float: left ;width: 50px; text-align: right;" type="number" min="0" max="9999" id="group2item19Quantity"></td><td>Statuette</td><td><button class="deleteButton" type="button" title="Remove and edit item" style="visibility: hidden;"></button></td></tr></tbody></table></div></div>
+                    <div style="margin-top: 14px">
+                        <table>
+                            <tbody><tr>
+                                <td style="min-width: 70px"><button id="showItemButton" type="button">Add Item</button></td><td style="min-width: 70px"><button id="showGroupButton" type="button">Edit Groups</button></td>
+                            </tr>
+                        </tbody></table>
+                        <div id="addItem" style="display: none;">
+                            <table>
+                                <tbody><tr>
+                                    <td><label for="itemQuantity">Quantity</label></td><td style="text-align: left;"><input id="itemQuantity" class="editTable" type="number" min="0" value="1" style="width:50px"></td>
+                                </tr><tr>
+                                    <td><label for="itemName">Item Name</label></td><td style="text-align: left;"><input id="itemName" class="editTable" type="text"></td>
+                                </tr><tr>
+                                    <td><label for="itemWeight">Weight</label></td><td style="text-align: left;"><input id="itemWeight" class="editTable" type="number" min="0" value="0" style="width:50px">lbs</td>
+                                </tr><tr>
+                                    <td><label for="itemValue">Value</label></td><td style="text-align: left;"><input id="itemValue" class="editTable" type="text" placeholder="12gp 3cp etc."></td>
+                                </tr><tr>
+                                    <td><label for="itemGroup">Group</label></td><td style="text-align: left;"><select id="itemGroup" class="editTable"><option value="0">Writing</option><option value="1">Inventory</option><option value="2">On person</option></select></td>
+                                </tr><tr>
+                                    <td>
+                                        <label for="itemOrder">Order</label>
+                                    </td>
+                                    <td style="text-align: left;">
+                                        <input id="itemOrder" class="editTable" type="number" min="0" value="0" max="100" style="width:50px" title="Use a higher number to make the item appear first in the list">
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                            <div>Description</div>
+                            <div id="itemDescription" class="editTable notebook" contenteditable="true" style="min-height: 30px;"></div>
+                            <button id="addItemButton" type="button">Add</button><button id="clearItemButton" type="button">Clear</button>
+                        </div>
+                        <div id="addGroup" style="display: none;">
+                            <div>
+                                <label for="groupName">Group Name </label><input id="groupName" class="editTable" type="text"><br>
+                                <button id="addGroupButton" type="button">Add</button>
+                            </div>
+                            <div>
+                                <select id="itemGroup2" class="editTable"><option value="0">Writing</option><option value="1">Inventory</option><option value="2">On person</option></select><button id="deleteGroupButton" type="button" title="Delete a group and all items in it">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div><div id="descriptionBox" class="inline group">
+                    <h2>Description</h2>
+                    <div id="description" class="stringGroup notebook" contenteditable="true">23 года<div>175 см</div><div>Спортивного вида с бронзового цвета кожей полуэльф</div><div><br></div></div>
+                    <h2>Personality Traits</h2>
+                    <div id="personality" class="stringGroup notebook" contenteditable="true">Всегда старается продумать запасной план. Зачастую черезчур переживает о странных вещах и ищет подвох там, где человек в здравом уме искать бы его не стал. Смотрит на большинство других людей свысока, но проявляет это максимум в неосознанных жестах, взглядах.</div>
+                    <h2>Ideals</h2>
+                    <div id="ideals" class="stringGroup notebook" contenteditable="true">Желает обрести положение и статус, которого, как он считает, он заслуживает.</div>
+                    <h2>Bonds</h2>
+                    <div id="bonds" class="stringGroup notebook" contenteditable="true">Искренне благодарен принявшему его в детстве магу. Взрослые, что добры к детям, и дети сами заслуживают помощи и хорошего отношения, остальные могут хоть в ад провалиться.</div>
+                    <h2>Flaws</h2>
+                    <div id="flaws" class="stringGroup notebook" contenteditable="true">Хоть ему это и совсем по душе, но он понимает, что если дела пойдут совсем плохо, в первую очередь он будет спасать свою собственную шкуру, рисковать жизнью ради товарища не для него.</div>
+                </div><div id="backstoryBox" class="inline group">
+                    <h2>Backstory</h2>
+                    <div id="story" class="notebook" contenteditable="true"><div><font face="tahoma, arial, verdana, sans-serif, Lucida Sans"><span style="font-size: 11px; line-height: 16.5px;">Мать Малдара, Мила, была простой сельской женщиной, а отец - проходившим через деревню эльфом-приключенцем, знали они друг друга лишь несколько дней, пока он не ушёл дальше своей дорогой. С детства Малдар был куда более сообразительнем, бойким, волевым, чем его сверстники, это было очевидно всем, кто его знал, в сильнее всего - ему самому. Но вот любви в деревне это ему не добавляло: никому не нравилось, когда его ребёнок (или он сам) казался дураком на фоне какого-то молокососа-полукровки. Даже мать, вроде бы любившая его, иногда вымещала на нём злость на его отца, так и не вернувшегося к ней и сделавшего её посмешищем всей деревни.</span></font></div><div><font face="tahoma, arial, verdana, sans-serif, Lucida Sans"><span style="font-size: 11px; line-height: 16.5px;">Где-то к 14 годам, когда Малдара начали уже откровенно травить в деревне, мать решилась потратить все свои скромные накопления и съездить с ним в <b><span class="calculate" data-calculation="TOWN" title="TOWN">TOWN</span></b>, в надежде, что смышлёного паренька получится где-нибудь пристроить. Там проверить мальчика согласился маг-гном Варрин Берен, но за несколько часов стало понятно, что магического дара в Малдаре нет. Тем не менее, Варрин был столь поражён его незаурядными способностями, что смог уговорить свою жену - травницу и алхимика Тану - взять мальчика себе в ученики. Это было лучшее, на что они могли надеяться, и Мила оставила сына в <b><span class="calculate" data-calculation="Town" title="Town">Town</span></b>, а сама уехала в деревню. Больше им увидеться не было суждено - она умерла через год от болезни.</span></font></div><div><font face="tahoma, arial, verdana, sans-serif, Lucida Sans"><span style="font-size: 11px; line-height: 16.5px;">У гномов Малдар интенсивно изучал алхимию, травничество, для чего регулярно приходилось ходить с Таной ходить в ближайшие леса, где на сокрытых от взгляда полянах, в пещерах можно было найти самые ценные травы и грибы. Тана к таким вылазкам всегда относилась очень ответственно: нанимала опытную охрану и избегала всякого риска. Не раз бывал Малдар в ситуациях, из которых нельзя было бы выйти целым и невредимым, не приняв их заранее в расчёт, что очень повлияло на его мировоззрение. В свободное от ученичества время он исполнял домашние обязанности, наблюдал, как Варрин преподаёт другим магическое искусство, или ввязывался с ним в пространные долгие споры. В это же время он периодически сталкивался с различными господами из высшего света, с которыми имела знакомство чета гномов, и каждый раз удивлялся их глупости, ограниченности их взглядов и суждений. Тогда в нём начало сформировываться убеждение, что, более талантливый, чем большинство имеющих реальную власть людей, он заслуживает куда лучшей доли, чем та, что ему досталась.</span></font></div><div><font face="tahoma, arial, verdana, sans-serif, Lucida Sans"><span style="font-size: 11px; line-height: 16.5px;">Так жил он 8 лет у гномов, уча алхимию и каждый день убеждаясь в своём несправедливо недооцененном превосходстве над окружающими, пока в один день Варрин не пригласил его в экспедицию в недавно обнаруженные небольшие древние захоронения. Все его обязанности заключались в подготовке лагеря и готовке еды,поэтому экспедиция была неожиданно скучным делом, пока в одном из залов его внимание не привлекла странная статуэтка непонятной формы. Статуэтка была немагической и явно ничего не стоила, поэтому ему разрешили её взять себе. В ту же ночь ему приснился странный сон, в которых фигурировали странные, ни на что не похоюие образы, точного вида которых по утру вспомнить он не мог. Эти же сны начали регулярно повторяться и после экспедиции, при этом, если не держать статуэтку при себе, они превращались в жуткие кошмары. Малдар чувствовал, что стал связан с чем-то невообразимым, даже не знающим о его существовании, но способным сломать его как соломинку. Он держал всё это при себе, пока Варрин однажды не заметил в ученике своей жены магическую силу, которая до этого отсутствовала в нём напрочь. Проявлять эту силу Малдар научился сам, незнакомыми гному-магу образами. Услышав всю историю, Варрин не смог вспомнить ни одной похожей истории, а поэтому его лучший совет, был стать приключенцем в надежде на то, что на одной из будущих дорог получится узнать что-то новое об этой силе.</span></font></div><div><font face="tahoma, arial, verdana, sans-serif, Lucida Sans"><span style="font-size: 11px; line-height: 16.5px;">После пары недель подготовки Малдар наконец вышел в путь, расчитывая осознать и развить эти новые силы, чтобы с их помощью занять подходящее ему место в этом мире.</span></font></div></div>
+                </div>
+                <div id="spellCasting" style="display: initial;">
+                    <div class="statHolder" style="max-width:600px;">
+                        <div id="castAbilities"><div id="castAbility0"><div class="inline squareStat">Spellcasting Ability<div></div><select class="ability" style="height: 50px; border: none; font-weight: bold;"><option value="StrengthMod">Strength</option><option value="DexterityMod">Dexterity</option><option value="ConstitutionMod">Constitution</option><option value="IntelligenceMod">Intelligence</option><option value="WisdomMod">Wisdom</option><option value="CharismaMod">Charisma</option></select></div><div class="inline squareStat">Spell Save DC<div></div><div class="bigNumber calculate" title="8 + CharismaMod + ProficiencyBonus" data-calculation="8 + CharismaMod + ProficiencyBonus">15</div></div><div class="inline squareStat">Spell Attack Bonus<div></div><div class="bigNumber calculate" title="CharismaMod + ProficiencyBonus" data-calculation="CharismaMod + ProficiencyBonus">7</div></div><div class="inline squareStat">Max Prepared Spells<div></div><input type="number" class="bigNumber maxPrepared" max="99" min="0"></div></div></div>
+                        <button id="castAbilitiesButton" class="addButton" type="button"></button>
+                    </div>
+                    <div id="cantripsBox" class="inline group">
+                        <h2>Cantrips</h2>
+                        <div class="center">
+                        </div>
+                        <div class="spellList" id="cantrips"><div style="margin-bottom: 10px;" id="level0spell0"><input class="prepared" type="checkbox" style="margin-right: 5px" title="Spell Prepared"><input type="text" class="spellName"><button class="deleteButton" type="button" style="visibility: hidden; float: right"></button><div class="spellDescription" style="padding: 5px;" contenteditable="true"><div><div>Eldritch Blast</div><div>Evocation cantrip</div><div>Casting Time: 1 action</div><div>Range: 120 feet</div><div>Components: V, S</div><div>Duration: Instantaneous</div><div>A beam of crackling energy streaks toward a creature</div><div>within range. Make a ranged spell attack against the</div><div>target. On a hit, the target takes 1dlO force damage.</div><div>The spell creates more than one beam when you reach</div><div>higher levels: two beams at 5th level, three beams at</div><div>11th level, and four beams at 17th level. You can direct</div><div>the beams at the same target or at different ones. Make</div><div>a separate attack roll for each beam.</div></div></div></div><div style="margin-bottom: 10px;" id="level0spell1"><input class="prepared" type="checkbox" style="margin-right: 5px" title="Spell Prepared"><input type="text" class="spellName"><button class="deleteButton" type="button" style="visibility: hidden; float: right"></button><div class="spellDescription" style="padding: 5px;" contenteditable="true"><div>Minor Illusion</div><div>Illusion cantrip</div><div>Casting Time: 1 action</div><div>Range: 30 feet</div><div>Com ponents: S, M (a bit of fleece)</div><div>Duration: 1 minute</div><div>You create a sound or an image of an object within</div><div>range that lasts for the duration. The illusion also ends if</div><div>you dismiss it as an action or cast this spell again.</div><div>If you create a sound, its volume can range from a</div><div>whisper to a scream . It can be your voice, someone</div><div>else’s voice, a lion’s roar, a beating of drums, or any</div><div>other sound you choose. The sound continues unabated</div><div>throughout the duration, or you can make discrete</div><div>sounds at different times before the spell ends.</div><div>If you create an image of an object—such as a chair,</div><div>muddy footprints, or a small chest—it must be no larger</div><div>than a 5-foot cube. The im age can’t create sound, light,</div><div>smell, or any other sensory effect. Physical interaction</div><div>with the image reveals it to be an illusion, because</div><div>things can pass through it.</div><div>If a creature uses its action to examine the sound or</div><div>image, the creature can determine that it is an illusion</div><div>with a successful Intelligence (Investigation) check</div><div>against your spell save DC. If a creature discerns the</div><div>illusion for what it is, the illusion becomes faint to</div><div>the creature.</div></div></div></div>
+                        <div>
+                            <button id="cantripButton" class="addButton" type="button"></button>
+                        </div>
+                    </div><div id="level1SpellsBox" class="inline group">
+                        <h2>Level 1</h2>
+                        <div class="center">
+                            <div class="inline squareStat spellSlot">
+                                <div>
+                                    <input id="level1Slots" class="bigNumber" type="number" autocomplete="off" min="0" max="2" step="1" value="0">
+                                </div>
+                                <div>
+                                    Max <input id="level1MaxSlots" class="littleNumber" type="number" autocomplete="off" min="0" max="99" step="1" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spellList" id="level1Spells"><div style="margin-bottom: 10px;" id="level1spell0"><input class="prepared" type="checkbox" style="margin-right: 5px" title="Spell Prepared"><input type="text" class="spellName"><button class="deleteButton" type="button" style="visibility: hidden; float: right"></button><div class="spellDescription" style="padding: 5px;" contenteditable="true"><div>1st-level transmutation</div><div>Casting Tim e: 1 bonus action</div><div>Range: Self</div><div>Components: V, S</div><div>Duration: Concentration, up to 10 minutes</div><div>This spell allows you to move at an incredible pace.</div><div>When you cast this spell, and then as a bonus action</div><div>on each of your turns until the spell ends, you can take</div><div>the Dash action.</div></div></div><div style="margin-bottom: 10px;" id="level1spell1"><input class="prepared" type="checkbox" style="margin-right: 5px" title="Spell Prepared"><input type="text" class="spellName"><button class="deleteButton" type="button" style="visibility: hidden; float: right"></button><div class="spellDescription" style="padding: 5px;" contenteditable="true"><div>1st-level enchantment</div><div>Casting Time: 1 action</div><div>Range: 30 feet</div><div>Components: V, S, M (tiny tarts and a feather that is</div><div>waved in the air)</div><div>Duration: Concentration, up to 1 minute</div><div>A creature of your choice that you can see within range</div><div>perceives everything as hilariously funny and falls</div><div>into fits of laughter if this spell affects it. The target</div><div>must succeed on a Wisdom saving throw or fall prone,</div><div>becoming incapacitated and unable to stand up for the</div><div>duration. A creature with an Intelligence score of 4 or</div><div>less isn’t affected.</div><div>At the end of each of its turns, and each time it takes</div><div>damage, the target can make another Wisdom saving</div><div>throw. The target has advantage on the saving throw if</div><div>it’s triggered by damage. On a success, the spell ends.</div></div></div></div>
+                        <div>
+                            <button id="level1Button" class="addButton" type="button"></button>
+                        </div>
+                    </div><div id="level2SpellsBox" class="inline group">
+                        <h2>Level 2</h2>
+                        <div class="center">
+                            <div class="inline squareStat spellSlot">
+                                <div>
+                                    <input id="level2Slots" class="bigNumber" type="number" autocomplete="off" min="0" max="0" step="1" value="0">
+                                </div>
+                                <div>
+                                    Max <input id="level2MaxSlots" class="littleNumber" type="number" autocomplete="off" min="0" max="99" step="1" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spellList" id="level2Spells"></div>
+                        <div>
+                            <button id="level2Button" class="addButton" type="button"></button>
+                        </div>
+                    </div><div id="level3SpellsBox" class="inline group">
+                        <h2>Level 3</h2>
+                        <div class="center">
+                            <div class="inline squareStat spellSlot">
+                                <div>
+                                    <input id="level3Slots" class="bigNumber" type="number" autocomplete="off" min="0" max="0" step="1" value="0">
+                                </div>
+                                <div>
+                                    Max <input id="level3MaxSlots" class="littleNumber" type="number" autocomplete="off" min="0" max="99" step="1" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spellList" id="level3Spells"></div>
+                        <div>
+                            <button id="level3Button" class="addButton" type="button"></button>
+                        </div>
+                    </div><div id="level4SpellsBox" class="inline group">
+                        <h2>Level 4</h2>
+                        <div class="center">
+                            <div class="inline squareStat spellSlot">
+                                <div>
+                                    <input id="level4Slots" class="bigNumber" type="number" autocomplete="off" min="0" max="0" step="1" value="0">
+                                </div>
+                                <div>
+                                    Max <input id="level4MaxSlots" class="littleNumber" type="number" autocomplete="off" min="0" max="99" step="1" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spellList" id="level4Spells"></div>
+                        <div>
+                            <button id="level4Button" class="addButton" type="button"></button>
+                        </div>
+                    </div><div id="level5SpellsBox" class="inline group">
+                        <h2>Level 5</h2>
+                        <div class="center">
+                            <div class="inline squareStat spellSlot">
+                                <div>
+                                    <input id="level5Slots" class="bigNumber" type="number" autocomplete="off" min="0" max="0" step="1" value="0">
+                                </div>
+                                <div>
+                                    Max <input id="level5MaxSlots" class="littleNumber" type="number" autocomplete="off" min="0" max="99" step="1" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spellList" id="level5Spells"></div>
+                        <div>
+                            <button id="level5Button" class="addButton" type="button"></button>
+                        </div>
+                    </div><div id="level6SpellsBox" class="inline group">
+                        <h2>Level 6</h2>
+                        <div class="center">
+                            <div class="inline squareStat spellSlot">
+                                <div>
+                                    <input id="level6Slots" class="bigNumber" type="number" autocomplete="off" min="0" max="0" step="1" value="0">
+                                </div>
+                                <div>
+                                    Max <input id="level6MaxSlots" class="littleNumber" type="number" autocomplete="off" min="0" max="99" step="1" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spellList" id="level6Spells"></div>
+                        <div>
+                            <button id="level6Button" class="addButton" type="button"></button>
+                        </div>
+                    </div><div id="level7SpellsBox" class="inline group">
+                        <h2>Level 7</h2>
+                        <div class="center">
+                            <div class="inline squareStat spellSlot">
+                                <div>
+                                    <input id="level7Slots" class="bigNumber" type="number" autocomplete="off" min="0" max="0" step="1" value="0">
+                                </div>
+                                <div>
+                                    Max <input id="level7MaxSlots" class="littleNumber" type="number" autocomplete="off" min="0" max="99" step="1" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spellList" id="level7Spells"></div>
+                        <div>
+                            <button id="level7Button" class="addButton" type="button"></button>
+                        </div>
+                    </div><div id="level8SpellsBox" class="inline group">
+                        <h2>Level 8</h2>
+                        <div class="center">
+                            <div class="inline squareStat spellSlot">
+                                <div>
+                                    <input id="level8Slots" class="bigNumber" type="number" autocomplete="off" min="0" max="0" step="1" value="0">
+                                </div>
+                                <div>
+                                    Max <input id="level8MaxSlots" class="littleNumber" type="number" autocomplete="off" min="0" max="99" step="1" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spellList" id="level8Spells"></div>
+                        <div>
+                            <button id="level8Button" class="addButton" type="button"></button>
+                        </div>
+                    </div><div id="level9SpellsBox" class="inline group">
+                        <h2>Level 9</h2>
+                        <div class="center">
+                            <div class="inline squareStat spellSlot">
+                                <div>
+                                    <input id="level9Slots" class="bigNumber" type="number" autocomplete="off" min="0" max="0" step="1" value="0">
+                                </div>
+                                <div>
+                                    Max <input id="level9MaxSlots" class="littleNumber" type="number" autocomplete="off" min="0" max="99" step="1" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spellList" id="level9Spells"></div>
+                        <div>
+                            <button id="level9Button" class="addButton" type="button"></button>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div id="notesBox" class="inline group">
+                        <h2>Notes</h2>
+                        <div id="notes" class="notebook" contenteditable="true"></div>
+                    </div>
+                    <div id="levelsBox" class="inline group">
+                        <h2>Levels</h2>
+                        <div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style="min-width: 60px;">Class</th><th style="min-width: 40px;">Level</th><th style="min-width: 40px;">HP</th><th style="min-width: 110px;">Features Gained</th><th style="width: 25px;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="levels"></tbody>
+                                <tbody>
+                                    <tr>
+                                        <td id="clsInput" class="editTable" title="Class leveled" contenteditable="true"></td>
+                                        <td id="levelInput" class="editTable" title="Level Gained" contenteditable="true"></td>
+                                        <td id="hpGainedInput" class="editTable" title="Hit Points Rolled" contenteditable="true"></td>
+                                        <td id="featuresGainedInput" class="editTable notebook" title="Features Gained" contenteditable="true"></td>
+                                        <td><button id="addLevelButton" class="addButton"></button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="xpBox" class="inline group">
+                        <h2 id="xpHeading">Experience&nbsp;&nbsp;&nbsp;&nbsp;0XP</h2>
+                        <div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style="min-width: 150px;">Event</th><th style="min-width: 30px;">XP</th><th style="min-width: 25px;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td id="eventInput" class="editTable" title="Event Experienced notebook" contenteditable="true"></td>
+                                        <td id="xpInput" class="editTable" title="Experience Points Gained" contenteditable="true"></td>
+                                        <td><button id="addExperienceButton" class="addButton"></button></td>
+                                    </tr>
+                                </tbody>
+                                <tbody id="experience"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div>
+                <h3>Log</h3>
+                <input id="filterLocal" type="checkbox">Hide own changes
+                <div id="demoLog"></div>
+            </div>
+            -->
+        </div>
+        <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function() {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-53563925-1', 'auto');
+            ga('require', 'displayfeatures');
+            ga('send', 'pageview');
+
+        </script>
+    
+<iframe name="oauth2relay244286401" id="oauth2relay244286401" src="./Maldar_files/postmessageRelay.html" tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><iframe id="apiproxy265a6989875b4d7f57a8fcdf67e12877af21b4c20.006370454328134656" name="apiproxy265a6989875b4d7f57a8fcdf67e12877af21b4c20.006370454328134656" src="./Maldar_files/proxy.html" tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe></body></html>
