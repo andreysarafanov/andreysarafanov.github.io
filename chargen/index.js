@@ -104,7 +104,10 @@ const archetypesByClass = ({
 const prestigeClasses = ["Agent of the Grave","Aldori Swordlord","Arcane Archer","Arcane Trickster","Arclord of Nex","Argent Dramaturge","Asavir","Ashavic Dancer","Aspis Agent","Assassin","Balanced Scale of Abadar","Battle Herald","Bellflower Tiller","Blackfire Adept","Bloatmage","Brewkeeper","Brightness Seeker","Brother of the Seal","Champion of Irori","Chernasardo Warden","Chevalier","Crimson Templar","Cyphermage","Daggermark Poisoner","Daivrat","Darechaser","Dawnflower Anchorite","Dawnflower Dissident","Death Slayer","Demoniac","Devoted Muse","Diabolist","Divine Scion","Dragon Disciple","Duelist","Eldritch Knight","Enchanting Courtesan","Envoy of Balance","Esoteric Knight","Evangelist","Exalted","Feysworn","Genie Binder","Golden Legionnaire","Gray Corsair","Gray Gardener","Green Faith Acolyte","Halfling Opportunist","Harrower","Hellknight","Hellknight Signifer","Heritor Knight","Hinterlander","Holy Vindicator","Horizon Walker","Inheritor's Crusader","Inner Sea Pirate","Justicar","Knight of Ozem","Lantern Bearer","Liberator","Lion Blade","Living Monolith","Loremaster","Low Templar","Magaambyan Arcanist","Mammoth Rider","Master Chymist","Master Spy","Mortal Usher","Mystery Cultist","Mystic Theurge","Nature Warden","Noble Scion","Pain Taster","Pathfinder Chronicler","Pathfinder Delver","Pathfinder Field Agent","Pathfinder Savant","Pit Fighter","Proctor","Prophet of Kalistrade","Pure Legion Enforcer","Rage Prophet","Razmiran Priest","Red Mantis Assassin","Riftwarden","Ritualist","Rivethun Emissary","Rose Warden","Runeguard","Sacred Sentinel","Sanguine Angel","Scar Seeker","Sentinel","Shackles Pirate","Shadowdancer","Shieldmarshal","Skyseeker","Sleepless Detective","Soul Warden","Souldrinker","Sphere Singer","Spherewalker","Stalwart Defender","Stargazer","Steel Falcon","Storm Kindler","Student of Perfection","Student of War","Tattooed Mystic","Technomancer","Thuvian Alchemist","Twilight Talon","Ulfen Guard","Umbral Court Agent","Veiled Illusionist","Westcrown Devil","Winter Witch"]
 
 function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
+    const arr = new Uint32Array(1);
+    window.crypto.getRandomValues(arr);
+    const randomNumber = arr[0] / 4294967295;
+    return Math.floor(randomNumber * Math.floor(max));
 }
 
 function rollRace() {
@@ -153,4 +156,42 @@ function addCharacterToList() {
     const p = document.createElement("p");
     p.innerHTML = character;
     charactersContainer.appendChild(p);
+}
+
+function roll1d6() {
+    return getRandomInt(6)+1;
+}
+
+function rollOneStatAndGetHtml() {
+    const values = [roll1d6(), roll1d6(), roll1d6(), roll1d6()];
+    const sortedValues = [...values].sort((a,b) => a - b);
+    const sum = sortedValues[1]+sortedValues[2]+sortedValues[3];
+    const minValue = sortedValues[0];
+    let valuesWithInfo = [];
+    let isMinRemoved = false;
+    for(let value of values) {
+        if (isMinRemoved || value !== minValue) {
+            valuesWithInfo.push({val: value, isMin: false});
+        } else {
+            valuesWithInfo.push({val: value, isMin: true});
+            isMinRemoved = true;
+        }
+    }
+
+    function printValue(valueWithInfo) {return valueWithInfo.isMin ? `${valueWithInfo.val}` : `<b>${valueWithInfo.val}</b>`}
+
+    let joinedValues = valuesWithInfo.map(v => printValue(v)).join('  ');
+    return `<b>${sum}</b> (${joinedValues})`;
+}
+
+function rollStatArrayAndAddHtml() {
+    const statsContainer = document.getElementById("stats");
+    const rollgroup = document.createElement("div");
+    rollgroup.classList.add("rollgroup");
+    for (let i = 0; i < 6; i++) {
+        const p = document.createElement("p");
+        p.innerHTML = rollOneStatAndGetHtml();
+        rollgroup.appendChild(p);   
+    }
+    statsContainer.appendChild(rollgroup);
 }

@@ -2,8 +2,29 @@
 <html>
 <head>
     <script src="index.js" type="text/javascript"></script>
+    <style type="text/css">
+        body{
+            font-family: Tahoma, sans-serif;
+        }
+        p {
+            margin: 4px 0;
+        }
+        .rollgroup {
+            margin: 8px 0;
+            border-bottom: 1px solid black;
+        }
+        #stats{
+            width: 100px;
+        }
+    </style>
 </head>
 <body>
+
+<h1>Rolled stats</h1>
+<br>
+<button onclick="rollStatArrayAndAddHtml()">+</button>
+<div id="stats"></div>
+    
 
 <h1>Created characters</h1>
 <br>
