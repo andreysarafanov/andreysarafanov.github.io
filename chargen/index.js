@@ -103,6 +103,26 @@ const archetypesByClass = ({
 
 const prestigeClasses = ["Agent of the Grave","Aldori Swordlord","Arcane Archer","Arcane Trickster","Arclord of Nex","Argent Dramaturge","Asavir","Ashavic Dancer","Aspis Agent","Assassin","Balanced Scale of Abadar","Battle Herald","Bellflower Tiller","Blackfire Adept","Bloatmage","Brewkeeper","Brightness Seeker","Brother of the Seal","Champion of Irori","Chernasardo Warden","Chevalier","Crimson Templar","Cyphermage","Daggermark Poisoner","Daivrat","Darechaser","Dawnflower Anchorite","Dawnflower Dissident","Death Slayer","Demoniac","Devoted Muse","Diabolist","Divine Scion","Dragon Disciple","Duelist","Eldritch Knight","Enchanting Courtesan","Envoy of Balance","Esoteric Knight","Evangelist","Exalted","Feysworn","Genie Binder","Golden Legionnaire","Gray Corsair","Gray Gardener","Green Faith Acolyte","Halfling Opportunist","Harrower","Hellknight","Hellknight Signifer","Heritor Knight","Hinterlander","Holy Vindicator","Horizon Walker","Inheritor's Crusader","Inner Sea Pirate","Justicar","Knight of Ozem","Lantern Bearer","Liberator","Lion Blade","Living Monolith","Loremaster","Low Templar","Magaambyan Arcanist","Mammoth Rider","Master Chymist","Master Spy","Mortal Usher","Mystery Cultist","Mystic Theurge","Nature Warden","Noble Scion","Pain Taster","Pathfinder Chronicler","Pathfinder Delver","Pathfinder Field Agent","Pathfinder Savant","Pit Fighter","Proctor","Prophet of Kalistrade","Pure Legion Enforcer","Rage Prophet","Razmiran Priest","Red Mantis Assassin","Riftwarden","Ritualist","Rivethun Emissary","Rose Warden","Runeguard","Sacred Sentinel","Sanguine Angel","Scar Seeker","Sentinel","Shackles Pirate","Shadowdancer","Shieldmarshal","Skyseeker","Sleepless Detective","Soul Warden","Souldrinker","Sphere Singer","Spherewalker","Stalwart Defender","Stargazer","Steel Falcon","Storm Kindler","Student of Perfection","Student of War","Tattooed Mystic","Technomancer","Thuvian Alchemist","Twilight Talon","Ulfen Guard","Umbral Court Agent","Veiled Illusionist","Westcrown Devil","Winter Witch"]
 
+let percentOfCoreRace = 60;
+let percentOfNoArchetype = 10;
+let percentOfWithPrestige = 30;
+let prestigeClassesToShow = 3;
+
+function setDefaultValues() {
+    document.getElementById('percentOfCoreRace').value = percentOfCoreRace;
+    document.getElementById('percentOfNoArchetype').value = percentOfNoArchetype;
+    document.getElementById('percentOfWithPrestige').value = percentOfWithPrestige;
+    document.getElementById('prestigeClassesToShow').value = prestigeClassesToShow;
+    document.getElementById('percentOfCoreRace').addEventListener("change", setPercentOfCoreRace);
+    document.getElementById('percentOfNoArchetype').addEventListener("change", setPercentOfNoArchetype);
+    document.getElementById('percentOfWithPrestige').addEventListener("change", setPercentOfWithPrestige);
+    document.getElementById('prestigeClassesToShow').addEventListener("change", setPrestigeClassesToShow);
+}
+function setPercentOfCoreRace(e) {percentOfCoreRace = +e.target.value;}
+function setPercentOfNoArchetype(e) {percentOfNoArchetype = +e.target.value;}
+function setPercentOfWithPrestige(e) {percentOfWithPrestige = +e.target.value;}
+function setPrestigeClassesToShow(e) {prestigeClassesToShow = +e.target.value;}
+
 function getRandomInt(max) {
     const arr = new Uint32Array(1);
     window.crypto.getRandomValues(arr);
@@ -110,9 +130,16 @@ function getRandomInt(max) {
     return Math.floor(randomNumber * Math.floor(max));
 }
 
+function roll1d6() {
+    return getRandomInt(6)+1;
+}
+
+function getPercent() {
+    return getRandomInt(100) + 1;
+}
+
 function rollRace() {
-    // 1-60 for core races, 61-100 for reincarnate races
-    const isCoreRace = getRandomInt(100) <= 59;
+    const isCoreRace = getPercent() <= percentOfCoreRace;
     if (isCoreRace) {
         return coreRaces[getRandomInt(coreRaces.length)]
     } else {
@@ -123,20 +150,24 @@ function rollRace() {
 function rollClass() {
     const _class = classes[getRandomInt(classes.length)]
     const archetypesForClass = archetypesByClass[_class];
-    const withArchetype = getRandomInt(100) >= 33;
+    const withArchetype = getPercent() > percentOfNoArchetype;
     let archetype = withArchetype ? archetypesForClass[getRandomInt(archetypesForClass.length)]: 'no archetype';
     return `${_class} (${archetype})`
 }
 
 function rollPrestigeClass() {
-    const withPresigeClass = getRandomInt(100) <= 32;
-    if (withPresigeClass) {
-        const classes = [
-            prestigeClasses[getRandomInt(prestigeClasses.length)],
-            prestigeClasses[getRandomInt(prestigeClasses.length)],
-            prestigeClasses[getRandomInt(prestigeClasses.length)]
-        ];
-        return `[${classes[0]} / ${classes[1]} / ${classes[2]}]`
+    const withPresigeClass = getPercent() <= percentOfWithPrestige;
+    prestigeClassIds = new Set();
+    if (withPresigeClass && prestigeClassesToShow > 0) {
+        for (let i = 0; i < prestigeClassesToShow; i++) {
+            let randomId;
+            do {
+                randomId = getRandomInt(prestigeClasses.length);
+            } while (prestigeClassIds.has(randomId));
+            prestigeClassIds.add(randomId);
+        }
+        const separatedClasses = Array.from(prestigeClassIds).map(id => prestigeClasses[id]).join(' / ');
+        return `[${separatedClasses}]`
     } else {
         return `[no prestige class]`
     }
@@ -156,10 +187,6 @@ function addCharacterToList() {
     const p = document.createElement("p");
     p.innerHTML = character;
     charactersContainer.appendChild(p);
-}
-
-function roll1d6() {
-    return getRandomInt(6)+1;
 }
 
 function rollOneStatAndGetHtml() {

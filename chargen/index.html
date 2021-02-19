@@ -16,9 +16,18 @@
         #stats{
             width: 100px;
         }
+        input {
+            width: 37px;
+        }
     </style>
 </head>
 <body>
+
+<p>
+    <input type="number" min="0" max="100" id="percentOfCoreRace"/>%, что будет корная раса, иначе по расширенной табличке реинкарнации (но может выпасть тоже корная).<br/>
+    <input type="number" min="0" max="100" id="percentOfNoArchetype"/>%, что класс будет без архетипа.<br/>
+    <input type="number" min="0" max="100" id="percentOfWithPrestige"/>%, что будут выбраны <input type="number" min="1" max="119" id="prestigeClassesToShow"/> престиж-классов.
+</p>
 
 <h1>Rolled stats</h1>
 <br>
@@ -31,5 +40,8 @@
 <button onclick="addCharacterToList()">+</button>
 <div id="characters"></div>
 
+<script type="text/javascript">
+    setDefaultValues();
+</script>
 </body>
 </html>
