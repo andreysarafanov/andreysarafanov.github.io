@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Dodo Map tester</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.js"
+        type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/xlsx/dist/shim.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" />
+
+    <script type="text/javascript">
+        function setInitialLocale() {
+            const locale = new URLSearchParams(window.location.search).get('locale')
+            locale && $('#locale').val(locale)
+        }
+    </script>
+
+
+    <script type="text/javascript">
+        var baseUrlStart = 'http://overpass-api.de/api/interpreter?data=[out:csv(name;false)];way["highway"~"."]["name"~"."](poly:"';
+        var baseUrlEnd = '");out center;';
+    
+        var currentFileName = ''
+        function saveFileName(file) {
+            const {name} = file
+            if (name) {
+                currentFileName = name.endsWith('.kml')
+                    ? name.substring(0, name.length-4)
+                    : name
+            }
+        }
+
+        function readSingleFile(e) {
+            var file = e.target.files[0];
+            if (!file) {
+                return;
+            }
+            saveFileName(file);
+            var reader = new FileReader();
+            reader.onload = function (e) {loadXml(e)};
+            reader.readAsText(file);
+        }
+
+        function loadXml(e) {
+            var contents = e.target.result;
+          
+            parser = new DOMParser();
+            xmlDoc = parser.parseFromString(contents, "text/xml");
+            var coordinates = xmlDoc.getElementsByTagName("coordinates")[0].innerHTML.split("\n");
+            var coordsForUrl = "";
+            coordinates.forEach(element => {
+                if ($.trim(element)){
+                    var tmp = $.trim(element).split(",");
+                    coordsForUrl += tmp[1]+" ";
+                    coordsForUrl += tmp[0]+" ";
+                    console.log(element);
+                }
+            });
+            var url = baseUrlStart + coordsForUrl.substring(0,coordsForUrl.length-1) + baseUrlEnd;
+            downloadText(url);
+        }
+
+        // https://stackoverflow.com/a/30832210
+        function download(data, filename, type) {
+            var file = new Blob([data], {type: type});
+            var a = document.createElement("a");
+            var url = URL.createObjectURL(file);
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(function() {
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);  
+            }, 0); 
+        }
+
+        async function downloadText(url) {
+            const response = await fetch(url)
+            let text = await response.text()
+            window.text = text
+            text = removeDuplicatesAndEmptyLines(text)
+            text = convertToAFileForDodoIS(text)
+            download(text, `${currentFileName}.csv`, 'text/csv')
+        }
+
+        function removeDuplicatesAndEmptyLines() {
+            const lines = text.split('\n').filter(l => l.length > 0)
+            return [...new Set(lines)].join('\n')
+        }
+
+        function convertToAFileForDodoIS(text) {
+            const locality = $('#locale').val()
+            const header = `Type,${locality},House filters,Postcode`
+            const convertLine = l => `,${l},,`
+            return [header, ...(text.split('\n').map(convertLine))].join('\n')
+        }
+
+
+        window.onload = function (){
+            setInitialLocale()
+            document.getElementById('file-input').addEventListener('change', readSingleFile, false);
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        Locale:
+        <input id="locale" type="text"/>
+    </div>
+    <br>
+    <div>
+        <input id="file-input" type="file" value="Открыть файл"></input>
+        <label id="showLabel"></label>
+    </div>
+    <div id="result"></div>
+</body>
+
+</html>
