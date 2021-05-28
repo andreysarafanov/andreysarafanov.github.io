@@ -98,7 +98,7 @@
             const postfix = $('#postfix').val()
             const header = `Type,${locality},House filters,Postcode`
             const addPostfix = l => postfix ? `${l} ${postfix}` : l
-            const convertLine = l => `,${l},,`
+            const convertLine = l => `,"${l}",,`
             return [header, ...(text.split('\n').map(addPostfix).map(convertLine))].join('\n')
         }
 
