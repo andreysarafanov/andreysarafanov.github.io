@@ -23,23 +23,12 @@
     <script type="text/javascript">
         var baseUrlStart = 'http://overpass-api.de/api/interpreter?data=[out:csv(name;false)];way["highway"~"."]["name"~"."](poly:"';
         var baseUrlEnd = '");out center;';
-    
-        var currentFileName = ''
-        function saveFileName(file) {
-            const {name} = file
-            if (name) {
-                currentFileName = name.endsWith('.kml')
-                    ? name.substring(0, name.length-4)
-                    : name
-            }
-        }
 
         function readSingleFile(e) {
             var file = e.target.files[0];
             if (!file) {
                 return;
             }
-            saveFileName(file);
             var reader = new FileReader();
             reader.onload = function (e) {loadXml(e)};
             reader.readAsText(file);
@@ -50,18 +39,26 @@
           
             parser = new DOMParser();
             xmlDoc = parser.parseFromString(contents, "text/xml");
-            var coordinates = xmlDoc.getElementsByTagName("coordinates")[0].innerHTML.split("\n");
-            var coordsForUrl = "";
-            coordinates.forEach(element => {
-                if ($.trim(element)){
-                    var tmp = $.trim(element).split(",");
-                    coordsForUrl += tmp[1]+" ";
-                    coordsForUrl += tmp[0]+" ";
-                    console.log(element);
-                }
-            });
-            var url = baseUrlStart + coordsForUrl.substring(0,coordsForUrl.length-1) + baseUrlEnd;
-            downloadText(url);
+
+            $("#zones").empty()
+            var placemarks = xmlDoc.getElementsByTagName("Placemark");
+            for (let pm of placemarks) {
+                let name = pm.getElementsByTagName("name")[0].innerHTML
+                let coordinates = pm.getElementsByTagName("coordinates")[0].innerHTML.split("\n")
+                let coordsForUrl = "";
+                coordinates.forEach(element => {
+                    if ($.trim(element)){
+                        var tmp = $.trim(element).split(",");
+                        coordsForUrl += tmp[1]+" ";
+                        coordsForUrl += tmp[0]+" ";
+                    }
+                });
+                let url = baseUrlStart + coordsForUrl.substring(0,coordsForUrl.length-1) + baseUrlEnd;
+                let button = $(`<input type="button" value="${name}"></input>`)
+                button.click(() => downloadText(url, name))
+                $("#zones").append(button)
+                $("#zones").append($(`<br/>`))
+            }
         }
 
         // https://stackoverflow.com/a/30832210
@@ -79,13 +76,14 @@
             }, 0); 
         }
 
-        async function downloadText(url) {
+        async function downloadText(url, zoneName) {
+            console.log(`downloading at this URL:${url}`)
             const response = await fetch(url)
             let text = await response.text()
             window.text = text
             text = removeDuplicatesAndEmptyLines(text)
             text = convertToAFileForDodoIS(text)
-            download(text, `${currentFileName}.csv`, 'text/csv')
+            download(text, `${zoneName}.csv`, 'text/csv')
         }
 
         function removeDuplicatesAndEmptyLines() {
@@ -97,9 +95,10 @@
             const locality = $('#locale').val()
             const postfix = $('#postfix').val()
             const header = `Type,${locality},House filters,Postcode`
+            const escapeQuotes = l => l.replaceAll(`"`, `""`)
             const addPostfix = l => postfix ? `${l} ${postfix}` : l
             const convertLine = l => `,"${l}",,`
-            return [header, ...(text.split('\n').map(addPostfix).map(convertLine))].join('\n')
+            return [header, ...(text.split('\n').map(escapeQuotes).map(addPostfix).map(convertLine))].join('\n')
         }
 
 
@@ -124,6 +123,9 @@
     <div>
         <input id="file-input" type="file" value="Открыть файл"></input>
         <label id="showLabel"></label>
+    </div>
+    <div id="zones-container">
+        <ul id="zones"></ul>
     </div>
     <div id="result"></div>
 </body>
