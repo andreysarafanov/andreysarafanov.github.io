@@ -54,9 +54,13 @@
                     }
                 });
                 let url = baseUrlStart + coordsForUrl.substring(0,coordsForUrl.length-1) + baseUrlEnd;
+                
+                let postfixInput = $(`<span>  postfix: </span><input type="text" value="" id="postfix_${name}"/>`)
+
                 let button = $(`<input type="button" value="${name}"></input>`)
                 button.click(() => downloadText(url, name))
                 $("#zones").append(button)
+                $("#zones").append(postfixInput)
                 $("#zones").append($(`<br/>`))
             }
         }
@@ -82,7 +86,7 @@
             let text = await response.text()
             window.text = text
             text = removeDuplicatesAndEmptyLines(text)
-            text = convertToAFileForDodoIS(text)
+            text = convertToAFileForDodoIS(text, zoneName)
             download(text, `${zoneName}.csv`, 'text/csv')
         }
 
@@ -91,12 +95,12 @@
             return [...new Set(lines)].join('\n')
         }
 
-        function convertToAFileForDodoIS(text) {
+        function convertToAFileForDodoIS(text, name) {
             const locality = $('#locale').val()
-            const postfix = $('#postfix').val()
+            const postfix = $(`#postfix_${name}`).val()
             const header = `Type,${locality},House filters,Postcode`
             const escapeQuotes = l => l.replaceAll(`"`, `""`)
-            const addPostfix = l => postfix ? `${l} ${postfix}` : l
+            const addPostfix = l => postfix ? `${l}${postfix}` : l
             const convertLine = l => `,"${l}",,`
             return [header, ...(text.split('\n').map(escapeQuotes).map(addPostfix).map(convertLine))].join('\n')
         }
@@ -113,11 +117,6 @@
     <div>
         <span class="input-label">Locale:</span>
         <input id="locale" type="text"/>
-    </div>
-    <br>
-    <div>
-        <span class="input-label">Street name postfix:</span>
-        <input id="postfix" type="text"/>
     </div>
     <br>
     <div>
