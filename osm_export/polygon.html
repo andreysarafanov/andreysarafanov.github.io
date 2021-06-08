@@ -42,7 +42,9 @@
 
             $("#zones").empty()
             var placemarks = xmlDoc.getElementsByTagName("Placemark");
+            let i = 0
             for (let pm of placemarks) {
+                i++;
                 let name = pm.getElementsByTagName("name")[0].innerHTML
                 let coordinates = pm.getElementsByTagName("coordinates")[0].innerHTML.split("\n")
                 let coordsForUrl = "";
@@ -55,10 +57,10 @@
                 });
                 let url = baseUrlStart + coordsForUrl.substring(0,coordsForUrl.length-1) + baseUrlEnd;
                 
-                let postfixInput = $(`<span>  postfix: </span><input type="text" value="" id="postfix_${name}"/>`)
+                let postfixInput = $(`<span>  postfix: </span><input type="text" value="" id="postfix_${i}"/>`)
 
                 let button = $(`<input type="button" value="${name}"></input>`)
-                button.click(() => downloadText(url, name))
+                button.click(() => downloadText(url, name, i))
                 $("#zones").append(button)
                 $("#zones").append(postfixInput)
                 $("#zones").append($(`<br/>`))
@@ -80,13 +82,13 @@
             }, 0); 
         }
 
-        async function downloadText(url, zoneName) {
+        async function downloadText(url, zoneName, index) {
             console.log(`downloading at this URL:${url}`)
             const response = await fetch(url)
             let text = await response.text()
             window.text = text
             text = removeDuplicatesAndEmptyLines(text)
-            text = convertToAFileForDodoIS(text, zoneName)
+            text = convertToAFileForDodoIS(text, index)
             download(text, `${zoneName}.csv`, 'text/csv')
         }
 
@@ -95,9 +97,9 @@
             return [...new Set(lines)].join('\n')
         }
 
-        function convertToAFileForDodoIS(text, name) {
+        function convertToAFileForDodoIS(text, index) {
             const locality = $('#locale').val()
-            const postfix = $(`#postfix_${name}`).val()
+            const postfix = $(`#postfix_${index}`).val()
             const header = `Type,${locality},House filters,Postcode`
             const escapeQuotes = l => l.replaceAll(`"`, `""`)
             const addPostfix = l => postfix ? `${l}${postfix}` : l
