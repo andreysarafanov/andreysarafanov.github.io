@@ -44,7 +44,7 @@
             var placemarks = xmlDoc.getElementsByTagName("Placemark");
             let i = 0
             for (let pm of placemarks) {
-                i++;
+                let index = i++;
                 let name = pm.getElementsByTagName("name")[0].innerHTML
                 let coordinates = pm.getElementsByTagName("coordinates")[0].innerHTML.split("\n")
                 let coordsForUrl = "";
@@ -57,10 +57,10 @@
                 });
                 let url = baseUrlStart + coordsForUrl.substring(0,coordsForUrl.length-1) + baseUrlEnd;
                 
-                let postfixInput = $(`<span>  postfix: </span><input type="text" value="" id="postfix_${i}"/>`)
+                let postfixInput = $(`<span>  postfix: </span><input type="text" value="" id="postfix_${index}"/>`)
 
                 let button = $(`<input type="button" value="${name}"></input>`)
-                button.click(() => downloadText(url, name, i))
+                button.click(() => downloadText(url, name, index))
                 $("#zones").append(button)
                 $("#zones").append(postfixInput)
                 $("#zones").append($(`<br/>`))
