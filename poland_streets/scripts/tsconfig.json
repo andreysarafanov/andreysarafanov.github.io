@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "system",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": false,
+    "downlevelIteration": true,
+    "lib": ["es6", "DOM"],
+    "strict": false
+  },
+  "include": ["src/**/*.ts"]
+}
