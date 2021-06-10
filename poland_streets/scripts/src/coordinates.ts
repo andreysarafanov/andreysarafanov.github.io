@@ -72,3 +72,9 @@ function groupStreetsByHouse(houses: House[]): StreetWithHouseFilter[] {
 
     return result
 }
+
+function formatAsDodoCsv(streets: StreetWithHouseFilter[]): string {
+    const header = `Type,pl-PL,House Filter,Post code`;
+    const body = streets.map(s => `,${s.street},"${s.houses.join(',')}",`).join('\n')
+    return `${header}\n${body}`
+}

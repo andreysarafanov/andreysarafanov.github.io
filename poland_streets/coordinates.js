@@ -54,3 +54,8 @@ function groupStreetsByHouse(houses) {
     Object.keys(resultDict).forEach(function (s) { return result.push(resultDict[s]); });
     return result;
 }
+function formatAsDodoCsv(streets) {
+    var header = "Type,pl-PL,House Filter,Post code";
+    var body = streets.map(function (s) { return "," + s.street + ",\"" + s.houses.join(',') + "\","; }).join('\n');
+    return header + "\n" + body;
+}

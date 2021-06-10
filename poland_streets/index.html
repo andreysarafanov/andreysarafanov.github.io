@@ -5,11 +5,12 @@
     <title>Map for Poland</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
     <script src="coordinates.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         let houses = []
-        let arrByZone = {}
+        let csvByZone = {}
 
         function readCsvFile(e) {
             document.getElementById('kml-input').disabled = true
@@ -46,17 +47,39 @@
             console.log(`placemarks written to window`)
 
             let i = 0;
-            arrByZone = {}
+            csvByZone = {}
+            $('#zone-buttons').empty()
             for (let pm of placemarks) {
                 let name = pm.getElementsByTagName("name")[0].innerHTML
                 console.log(`name: ${name}`)
                 let coordinates = pm.getElementsByTagName("coordinates")[0].innerHTML.trim()
                 let polygon = parsePolygon(coordinates)
                 let housesInZone = filterHousesInPolygon(houses, polygon)
-                arrByZone[name] = groupStreetsByHouse(housesInZone)
+                let groupedStreets = groupStreetsByHouse(housesInZone)
+                let csv = formatAsDodoCsv(groupedStreets)
+
+                let button = $(`<input type="button" value="${name}"></input>`)
+                button.click(() => download(csv, `${name}.csv`, 'text/csv'))
+                $("#zone-buttons").append(button)
+                $("#zone-buttons").append($(`<br/>`))
             }
 
-            Object.keys(arrByZone).forEach(z => console.log(`${z}: ${arrByZone[z].length}`))
+            Object.keys(csvByZone).forEach(z => console.log(`${z}: ${JSON.stringify(csvByZone[z])}`))
+        }
+
+        // https://stackoverflow.com/a/30832210
+        function download(data, filename, type) {
+            var file = new Blob([data], {type: type});
+            var a = document.createElement("a");
+            var url = URL.createObjectURL(file);
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(function() {
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);  
+            }, 0); 
         }
         
         window.onload = function (){
@@ -71,6 +94,10 @@
     <input id="csv-input" type="file" value="Загрузить базу адресов">Загрузить базу адресов</input>
     <br />
     <input id="kml-input" type="file" value="Открыть kml-файл" disabled>Открыть kml-файл</input>
+    <br>
+    <div id="zone-buttons">
+
+    </div>
 </body>
 
 </html>
